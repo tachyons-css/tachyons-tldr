@@ -22,26 +22,24 @@ export default {
 
 <template>
   <terminal title="Tachyons">
-    <fieldset class="bn ma0 pa0 mt4 code">
-      <div class="flex items-baseline">
+    <div class="mt4 code flex items-baseline">
 
-        <label is="field-label"
-          for="query"
-          hide>
-          CSS Property Query
-        </label>
+      <label is="field-label"
+        for="query"
+        hide>
+        CSS Property Query
+      </label>
 
-        <span class="mr2">$ tldr</span>
+      <span class="mr2">$ tldr</span>
 
-        <input is="text-input"
-          class="flex-auto"
-          placeholder="search for a CSS property name"
-          type="search"
-          name="query"
-          focus
-          :value="propNameQuery"
-          @change="searchForProp({ query: $event })" />
-      </div>
-    </fieldset>
+      <input is="text-input"
+        class="flex-auto"
+        placeholder="search for a CSS property name"
+        type="search"
+        name="query"
+        focus
+        :value="propNameQuery"
+        @change="searchForProp({ query: $event })" />
+    </div>
   </terminal>
 </template>

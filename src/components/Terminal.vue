@@ -1,5 +1,5 @@
 <template>
-  <form class="pa3 br2-ns ba b--black-20 bg-white flex-auto">
+  <div class="pa3 br2-ns ba b--black-20 bg-white flex-auto">
     <div class="relative">
       <div class="absolute left-0">
         <span class="br-100 w1 h1 dib bg-light-red"></span>
@@ -10,7 +10,7 @@
     </div>
 
     <slot></slot>
-  </form>
+  </div>
 </template>
 
 <script>
