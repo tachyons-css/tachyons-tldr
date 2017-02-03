@@ -10,13 +10,15 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "lodash.debounce": "^4.0.8",
     "postcss": "^5.2.11",
     "postcss-js": "^0.2.0",
     "postcss-loader": "^1.2.2",
     "ramda": "^0.23.0",
     "raw-loader": "^0.5.1",
     "tachyons": "^4.6.2",
-    "vue": "^2.1.0"
+    "vue": "^2.1.0",
+    "vuex": "^2.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

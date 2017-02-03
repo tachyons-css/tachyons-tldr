@@ -1,24 +1,11 @@
 <template>
-  <div id="app" class="mw7 ph3 code">
-    <h1>Tachyons Decrypt</h1>
+  <div id="app" class="mw7 center ph3 dark-gray sans-serif">
 
-    <form class="bg-light-red mw7 center pa4 br2-ns ba b--black-10">
-      <fieldset class="cf bn ma0 pa0">
-        <legend class="pa0 f5 f4-ns mb3 black-80">Search for a CSS property name</legend>
-        <div class="cf">
-          <label class="clip" for="query">CSS Property Query</label>
-          <input class="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 br2"
-            placeholder="Hyphenated or camel case property names"
-            type="search"
-            name="query"
-            value=""
-            id="query">
-        </div>
-      </fieldset>
-    </form>
+    <div class="vh-100 flex items-center">
+      <prop-search />
+    </div>
 
-
-    <ul>
+    <!-- <ul>
       <li v-for="(classNames, property) in properties">
         {{ property }}
         <ul>
@@ -27,20 +14,18 @@
           </li>
         </ul>
       </li>
-    </ul>
+    </ul> -->
 
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello';
+import PropSearch from './components/PropSearch';
 import classesGroupedByPropName from './styles';
 
 export default {
   name: 'app',
-  components: {
-    Hello,
-  },
+  components: { PropSearch },
   computed: {
     properties() {
       return classesGroupedByPropName;

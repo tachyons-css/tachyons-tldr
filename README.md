@@ -1,4 +1,4 @@
-# tachyons-decrypt
+# tachyons-tldr
 
 > decrypt tachyon CSS classes
 

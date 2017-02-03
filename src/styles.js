@@ -32,3 +32,14 @@ const classesGroupedByPropName = R.compose(
 )(cssObj);
 
 export default classesGroupedByPropName;
+
+const toKebabCase = s => s.replace(
+  /\.?([A-Z])/g,
+  (x, y) => `-${y.toLowerCase()}`,
+).replace(/^-/, '');
+const getPropNameVariations = R.converge(R.pair, [R.identity, toKebabCase]);
+
+export const propLookUpTable = R.compose(
+  R.map(getPropNameVariations),
+  R.keys,
+)(classesGroupedByPropName);
