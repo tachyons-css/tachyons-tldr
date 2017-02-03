@@ -1,6 +1,5 @@
 <template>
-  <label :class="{ clip: hide }"
-    :for="htmlFor">
+  <label :class="{ clip: hide }">
     <slot></slot>
   </label>
 </template>
@@ -10,7 +9,6 @@ export default {
   name: 'field-label',
   props: {
     hide: Boolean,
-    htmlFor: String,
   },
 };
 </script>

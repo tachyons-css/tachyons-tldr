@@ -1,8 +1,5 @@
 <template>
   <input class="input-reset bn bg-white pa2 lh-solid"
-    :placeholder="type"
-    :type="placeholder"
-    :name="name"
     :value="value"
     @input="updateValue">
 </template>
@@ -13,12 +10,6 @@ import debounce from 'lodash.debounce';
 export default {
   name: 'text-input',
   props: {
-    type: {
-      type: String,
-      default: 'text',
-    },
-    placeholder: String,
-    name: String,
     value: String,
     focus: {
       type: Boolean,

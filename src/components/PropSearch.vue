@@ -25,14 +25,16 @@ export default {
     <fieldset class="bn ma0 pa0 mt4 code">
       <div class="flex items-baseline">
 
-        <field-label :hide="true"
-          htmlFor="query">
+        <label is="field-label"
+          for="query"
+          hide>
           CSS Property Query
-        </field-label>
+        </label>
 
         <span class="mr2">$ tldr</span>
 
-        <text-input class="flex-auto"
+        <input is="text-input"
+          class="flex-auto"
           placeholder="search for a CSS property name"
           type="search"
           name="query"
