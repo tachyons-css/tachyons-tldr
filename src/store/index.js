@@ -1,28 +1,16 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import classNames from './modules/class-names';
 
 Vue.use(Vuex);
 
-/* eslint-disable no-param-reassign */
+const debug = process.env.NODE_ENV !== 'production';
+
 const store = new Vuex.Store({
-  state: {
-    propNameQuery: null,
+  modules: {
+    classNames,
   },
-
-  actions: {
-    searchForProp: ({ commit }, { query }) => {
-      commit('SET_PROP_NAME_QUERY', { query });
-    },
-  },
-
-  mutations: {
-    SET_PROP_NAME_QUERY: (state, { query }) => {
-      state.propNameQuery = query;
-    },
-  },
-
-  getters: {},
+  strict: debug,
 });
 
 export default store;
-/* eslint-enable no-param-reassign */

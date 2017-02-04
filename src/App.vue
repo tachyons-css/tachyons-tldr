@@ -1,9 +1,19 @@
 <template>
-  <div id="app" class="mw7 center ph3 dark-gray sans-serif">
+  <div id="app"
+    class="mw7 center ph3 dark-gray sans-serif">
 
-    <div class="vh-100 flex items-center">
-      <prop-search />
-    </div>
+    <header class="mt6">
+      <h1 class="tc f6 mt0">Tachyons</h1>
+    </header>
+
+    <class-name-search class="mt4" />
+
+    <ul>
+      {{ searchResult.name }}
+      <li v-for="className in searchResult.classes">
+        {{ className }}
+      </li>
+    </ul>
 
     <!-- <ul>
       <li v-for="(classNames, property) in properties">
@@ -20,16 +30,19 @@
 </template>
 
 <script>
-import PropSearch from './components/PropSearch';
-import classesGroupedByPropName from './styles';
+import { mapGetters } from 'vuex';
+import ClassNameSearch from './components/ClassNameSearch';
 
 export default {
   name: 'app',
-  components: { PropSearch },
+  components: { ClassNameSearch },
   computed: {
-    properties() {
-      return classesGroupedByPropName;
-    },
+    ...mapGetters([
+      'searchResult',
+    ]),
+  },
+  beforeMount() {
+    this.$store.dispatch('parseClasses');
   },
 };
 </script>

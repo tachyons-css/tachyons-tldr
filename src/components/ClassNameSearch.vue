@@ -5,11 +5,11 @@ import FieldLabel from './FieldLabel';
 import TextInput from './TextInput';
 
 export default {
-  name: 'prop-search',
+  name: 'class-name-search',
   components: { Terminal, FieldLabel, TextInput },
   computed: {
     ...mapState([
-      'propNameQuery',
+      'classNames',
     ]),
   },
   methods: {
@@ -22,7 +22,7 @@ export default {
 
 <template>
   <terminal title="Tachyons">
-    <div class="mt4 code flex items-baseline">
+    <div class="code flex items-baseline">
 
       <label is="field-label"
         for="query"
@@ -38,7 +38,7 @@ export default {
         type="search"
         name="query"
         focus
-        :value="propNameQuery"
+        :value="classNames.query"
         @change="searchForProp({ query: $event })" />
     </div>
   </terminal>

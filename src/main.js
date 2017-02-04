@@ -5,13 +5,14 @@ import App from './App';
 import store from './store';
 
 require('tachyons');
+require('./index.css');
 
 /* eslint-disable no-new */
-const app = new Vue({
+new Vue({
   el: '#app',
   template: '<app />',
   store,
   ...App,
 });
 
-app.$mount('#app');
+// app.$mount('#app');

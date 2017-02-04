@@ -12,17 +12,24 @@ const getAtMediaClasses = R.compose(
   getAtMediaRules,
 );
 
-function splitRules(props, className) {
-  return R.map(R.pair(className), props);
-}
 
 const root = postcss.parse(css);
+
 export const cssObj = R.compose(
   R.converge(R.merge, [getClasses, getAtMediaClasses]),
   postcssJs.objectify,
 )(root);
 
-const classesGroupedByPropName = R.compose(
+const toKebabCase = s => s.replace(
+  /\.?([A-Z])/g,
+  (x, y) => `-${y.toLowerCase()}`,
+).replace(/^-/, '');
+
+function splitRules(props, className) {
+  return R.map(R.pair(className), props);
+}
+
+export const groupedClasses = R.compose(
   R.map(R.map(R.head)),
   R.groupBy(R.tail),
   R.unnest,
@@ -31,15 +38,20 @@ const classesGroupedByPropName = R.compose(
   R.map(R.keys),
 )(cssObj);
 
-export default classesGroupedByPropName;
+// export const propNames = R.compose(
+//   R.map(R.converge(R.xProd, [R.of, toKebabCase])),
+//   R.keys,
+// )(groupedClasses);
 
-const toKebabCase = s => s.replace(
-  /\.?([A-Z])/g,
-  (x, y) => `-${y.toLowerCase()}`,
-).replace(/^-/, '');
-const getPropNameVariations = R.converge(R.pair, [R.identity, toKebabCase]);
+const getNameVariations = R.juxt([R.toLower, toKebabCase]);
 
-export const propLookUpTable = R.compose(
-  R.map(getPropNameVariations),
+export const propNamesList = R.compose(
+  R.mergeAll,
+  R.map(
+    R.compose(
+      R.fromPairs,
+      R.converge(R.xprod, [getNameVariations, R.of]),
+    ),
+  ),
   R.keys,
-)(classesGroupedByPropName);
+)(groupedClasses);

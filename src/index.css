@@ -1,0 +1,9 @@
+.ty-center {
+  position: relative;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%);
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
