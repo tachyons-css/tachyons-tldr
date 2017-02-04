@@ -38,10 +38,6 @@ export const groupedClasses = R.compose(
   R.map(R.keys),
 )(cssObj);
 
-// export const propNames = R.compose(
-//   R.map(R.converge(R.xProd, [R.of, toKebabCase])),
-//   R.keys,
-// )(groupedClasses);
 
 const getNameVariations = R.juxt([R.toLower, toKebabCase]);
 
@@ -55,3 +51,5 @@ export const propNamesList = R.compose(
   ),
   R.keys,
 )(groupedClasses);
+
+console.log(cssObj);
