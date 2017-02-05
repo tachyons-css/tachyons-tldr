@@ -1,5 +1,5 @@
 <template>
-  <input class="input-reset bn bg-white pa2 lh-solid"
+  <input class="input-reset bn pa2"
     :value="value"
     @input="updateValue">
 </template>

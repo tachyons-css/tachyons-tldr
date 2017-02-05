@@ -30,10 +30,10 @@ export default {
         CSS Property Query
       </label>
 
-      <span class="mr2">$ tldr</span>
+      <span class="mr2 b near-black lh-solid">$ tldr</span>
 
       <input is="text-input"
-        class="flex-auto"
+        class="flex-auto code bg-near-white lh-solid br1"
         placeholder="search for a CSS property name"
         type="search"
         name="query"

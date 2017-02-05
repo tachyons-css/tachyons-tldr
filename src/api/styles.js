@@ -51,5 +51,3 @@ export const propNamesList = R.compose(
   ),
   R.keys,
 )(groupedClasses);
-
-console.log(cssObj);

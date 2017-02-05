@@ -1,30 +1,32 @@
 <template>
   <div id="app"
-    class="mw7 center ph3 dark-gray sans-serif">
+    class="ph3 dark-gray sans-serif">
 
-    <header class="mt6">
-      <h1 class="tc f6 mt0">Tachyons</h1>
+    <header class="mt6 mw8 center">
+      <h1 class="tc f6 mt0">Tachyons tldr;</h1>
+
+      <nav class="tc mt3">
+        <a class="link dim gray f6 f5-ns dib mr3" href="#" title="Home">classNames</a>
+        <a class="link dim gray f6 f5-ns dib mr3" href="#" title="About">scales</a>
+        <a class="link dim gray f6 f5-ns dib" href="#" title="Store">palette</a>
+      </nav>
     </header>
 
-    <class-name-search class="mt4" />
+    <class-name-search class="mt5 mw7 center" />
 
-    <ul>
-      {{ searchResult.name }}
-      <li v-for="className in searchResult.classes">
-        {{ className }}
-      </li>
-    </ul>
-
-    <!-- <ul>
-      <li v-for="(classNames, property) in properties">
-        {{ property }}
-        <ul>
-          <li v-for="className in classNames">
-            {{ className }}
+    <ul class="code list pl0 mt5 mw8 center">
+      <li class="flex mb3"
+        v-for="(mqClassNames, className) in searchResult.classes">
+        <div class="w-33">
+          {{ className }}
+        </div>
+        <ul class="list pl0 flex-auto">
+          <li v-for="mqClassName in mqClassNames">
+            {{ mqClassName }}
           </li>
         </ul>
       </li>
-    </ul> -->
+    </ul>
 
   </div>
 </template>

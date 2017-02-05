@@ -1,7 +1,7 @@
-import R, { __ } from 'ramda';
+import R from 'ramda';
 import { CLASS_NAMES } from '../mutation-types';
-import { propNamesList, groupedClasses } from '../../api/styles';
-
+import { groupedClasses } from '../../api/styles';
+import * as utils from './utils';
 
 /**
  * initial state
@@ -12,12 +12,6 @@ const classNamesState = {
 };
 
 
-const findGroup = R.compose(
-  R.prop(__, propNamesList),
-  R.toLower
-);
-
-
 /**
  * Getters
  */
@@ -25,10 +19,17 @@ const getters = {
   searchResult: ({ groups, query }) => {
     const name = R.unless(
       R.either(R.isNil, R.isEmpty),
-      findGroup,
+      utils.findGroup,
     )(query);
 
-    return name ? { name, classes: groups[name] } : {};
+    if (groups[name]) {
+      return {
+        name,
+        classes: utils.groupClasses(groups[name]),
+      };
+    }
+
+    return {};
   },
 };
 
