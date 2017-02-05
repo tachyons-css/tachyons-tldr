@@ -1,12 +1,22 @@
 import R, { __ } from 'ramda';
-import { propNamesList } from '../../api/styles';
-
-export const findGroup = R.compose(
-  R.prop(__, propNamesList),
-  R.toLower
-);
+import { propNamesList, cssObj } from '../../api/styles';
 
 const mediaQueryRegex = /(.+)-(ns|m|l)$/;
+
+export const findByPartialMatch = query => R.compose(
+  R.find(
+    R.pipe(R.toLower, R.invoker(1, 'includes')(query))
+  ),
+  R.values,
+)(propNamesList);
+
+export const findGroup = R.converge(R.or, [
+  R.compose(
+    R.prop(__, propNamesList),
+    R.toLower,
+  ),
+  findByPartialMatch,
+]);
 
 const groupByClassName = R.groupBy(
   R.ifElse(R.test(mediaQueryRegex),
@@ -16,6 +26,11 @@ const groupByClassName = R.groupBy(
 );
 
 export const groupClasses = R.compose(
+  R.mapObjIndexed((mqNames, className) => ({
+    name: className,
+    value: cssObj[className],
+    mqNames,
+  })),
   R.map(R.tail),
   groupByClassName,
 );

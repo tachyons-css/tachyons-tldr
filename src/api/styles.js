@@ -11,11 +11,19 @@ const getAtMediaClasses = R.compose(
   R.values,
   getAtMediaRules,
 );
-
+/* eslint-disable no-param-reassign */
+const renameKeys = R.curry((keysMap, obj) => (
+  R.reduce((acc, key) => {
+    acc[keysMap[key] || key] = obj[key];
+    return acc;
+  }, {}, R.keys(obj))
+));
+/* eslint-enable no-param-reassign */
 
 const root = postcss.parse(css);
 
 export const cssObj = R.compose(
+  R.map(renameKeys({ cssFloat: 'float' })),
   R.converge(R.merge, [getClasses, getAtMediaClasses]),
   postcssJs.objectify,
 )(root);
