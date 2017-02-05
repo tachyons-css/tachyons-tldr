@@ -26,6 +26,7 @@ const groupByClassName = R.groupBy(
 );
 
 export const groupClasses = R.compose(
+  R.values,
   R.mapObjIndexed((mqNames, className) => ({
     name: className,
     value: cssObj[className],

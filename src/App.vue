@@ -14,42 +14,8 @@
 
     <class-name-search class="mb5 mw7 center" />
 
-    <div class="code mb5 mw7 center">
-
-      <div class="flex items-center mb3 bt-0 bl-0 br-0 bb b--dark-gray bw1 pb3">
-        <h3 class="f5 w-30 ma0">
-          selector
-        </h3>
-        <h3 class="f5 flex-auto ma0">rulesets</h3>
-        <h3 class="f5 w-20 ma0">breakpoints</h3>
-      </div>
-
-      <div class="flex items-center mt3 ph3"
-        v-for="tachyonsClass in searchResult.classes">
-        <div class="w-30">
-          {{ tachyonsClass.name }}
-        </div>
-        <!-- <pre class="flex-auto">{{
-          JSON.stringify(tachyonsClass.value, null, 2)
-        }}</pre> -->
-        <div class="flex-auto">
-          <ul class="list pl0">
-            <li v-for="(value, prop) in tachyonsClass.value">
-              {{ prop }}: {{ Array.isArray(value) ? value[0] : value }}
-            </li>
-          </ul>
-        </div>
-        <div class="w-20 tc">
-          {{ tachyonsClass.mqNames.length > 0 ? '✅' : '❌' }}
-          <!-- <ul class="list">
-            <li v-for="mqClassName in tachyonsClass.mqNames">
-              {{ mqClassName }}
-            </li>
-          </ul> -->
-        </div>
-
-      </div>
-    </div>
+    <class-names-list class="mb5 mw7 center"
+      :classNames="searchResults" />
 
   </div>
 </template>
@@ -57,13 +23,14 @@
 <script>
 import { mapGetters } from 'vuex';
 import ClassNameSearch from './components/ClassNameSearch';
+import ClassNamesList from './components/ClassNamesList';
 
 export default {
   name: 'app',
-  components: { ClassNameSearch },
+  components: { ClassNameSearch, ClassNamesList },
   computed: {
     ...mapGetters([
-      'searchResult',
+      'searchResults',
     ]),
   },
   beforeMount() {

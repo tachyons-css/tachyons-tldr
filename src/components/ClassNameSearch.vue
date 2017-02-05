@@ -34,7 +34,7 @@ export default {
 
       <input is="text-input"
         class="flex-auto code bg-near-white lh-solid br1"
-        placeholder="search for a CSS property name"
+        placeholder="search for a tachyons class name or a CSS property name"
         type="search"
         name="query"
         focus

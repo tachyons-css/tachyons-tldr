@@ -16,20 +16,13 @@ const classNamesState = {
  * Getters
  */
 const getters = {
-  searchResult: ({ groups, query }) => {
+  searchResults: ({ groups, query }) => {
     const name = R.unless(
       R.either(R.isNil, R.isEmpty),
       utils.findGroup,
     )(query);
 
-    if (groups[name]) {
-      return {
-        name,
-        classes: utils.groupClasses(groups[name]),
-      };
-    }
-
-    return {};
+    return groups[name] ? utils.groupClasses(groups[name]) : [];
   },
 };
 
