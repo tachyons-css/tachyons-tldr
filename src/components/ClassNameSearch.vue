@@ -33,7 +33,8 @@ export default {
       <span class="mr2 b near-black lh-solid">$ tldr</span>
 
       <input is="text-input"
-        class="flex-auto code bg-near-white lh-solid br1"
+        class="flex-auto code lh-solid br1"
+        style="background-color: rgba(0, 0, 0, 0.025);"
         placeholder="search for a tachyons class name or a CSS property name"
         type="search"
         name="query"

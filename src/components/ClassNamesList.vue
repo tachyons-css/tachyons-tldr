@@ -11,7 +11,6 @@ export default {
   methods: {
     /* eslint-disable */
     enter(el, done) {
-      console.log(el.dataset.index * 50);
       anime({
         targets: el,
         delay: Math.min(1000, el.dataset.index * 50),
@@ -19,6 +18,7 @@ export default {
         translateZ: 0,
         translateY: ['-50%', 0],
         easing: 'easeOutExpo',
+        duration: 600,
         onComplete: done,
       });
     },
@@ -30,13 +30,13 @@ export default {
 <template>
   <div class="code">
 
-    <div class="flex items-center mb3 bt-0 bl-0 br-0 bb b--dark-gray bw1 pb3">
+    <!-- <div class="flex items-center mb3 bt-0 bl-0 br-0 bb b--dark-gray bw1 pb3">
       <h3 class="f5 w-30 ma0">
         selector
       </h3>
       <h3 class="f5 flex-auto ma0">ruleset</h3>
       <h3 class="f5 w-20 ma0">breakpoints</h3>
-    </div>
+    </div> -->
 
     <transition-group name="staggered-fade"
       tag="div"
@@ -47,7 +47,7 @@ export default {
         :className="className"
         :key="className.name"
         :data-index="index"
-        :class="{ 'bg-near-white': index % 2 === 0 }" />
+        :class="{ 'bg-near-white': index % 2 !== 0 }" />
     </transition-group>
   </div>
 </template>

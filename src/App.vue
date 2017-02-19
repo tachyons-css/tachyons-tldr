@@ -1,40 +1,38 @@
+<script>
+import AppHeader from './components/AppHeader';
+
+export default {
+  name: 'app',
+  components: { AppHeader },
+};
+</script>
+
 <template>
   <div id="app"
-    class="dark-gray sans-serif ph3">
+    class="dark-gray sans-serif relative">
 
-    <header class="mt6 mb5 mw8 center">
-      <h1 class="tc f5 mt0">Tachyons tldr</h1>
+    <app-header></app-header>
 
-      <nav class="tc mt3">
-        <a class="link dim gray f6 f5-ns dib mr3" href="#" title="Home">classNames</a>
-        <a class="link dim gray f6 f5-ns dib mr3" href="#" title="About">scales</a>
-        <a class="link dim gray f6 f5-ns dib" href="#" title="Store">palette</a>
-      </nav>
-    </header>
-
-    <class-name-search class="mb5 mw7 center" />
-
-    <class-names-list class="mb5 mw7 center"
-      :classNames="searchResults" />
+    <transition name="slide-left">
+      <router-view class="absolute w-100 ph3 slide"></router-view>
+    </transition>
 
   </div>
 </template>
 
-<script>
-import { mapGetters } from 'vuex';
-import ClassNameSearch from './components/ClassNameSearch';
-import ClassNamesList from './components/ClassNamesList';
+<style>
+  .slide {
+    transition: transform .5s cubic-bezier(0.55, 0, 0.1, 1);
+  }
 
-export default {
-  name: 'app',
-  components: { ClassNameSearch, ClassNamesList },
-  computed: {
-    ...mapGetters([
-      'searchResults',
-    ]),
-  },
-  beforeMount() {
-    this.$store.dispatch('parseClasses');
-  },
-};
-</script>
+  .slide-left-enter,
+  .slide-right-leave-active {
+    opacity: 0;
+    transform: translate(30px, 0);
+  }
+  .slide-left-leave-active,
+  .slide-right-enter {
+    opacity: 0;
+    transform: translate(-30px, 0);
+  }
+</style>
