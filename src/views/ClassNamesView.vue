@@ -1,18 +1,10 @@
-<template>
-  <div>
-    <class-name-search class="mb5 mw7 center" />
-    <class-names-list class="mb5 mw7 center"
-      :classNames="searchResults" />
-  </div>
-</template>
-
 <script>
 import { mapGetters } from 'vuex';
 import ClassNameSearch from '../components/ClassNameSearch';
 import ClassNamesList from '../components/ClassNamesList';
 
 export default {
-  name: 'app',
+  name: 'class-names-view',
   components: { ClassNameSearch, ClassNamesList },
   computed: {
     ...mapGetters([
@@ -24,3 +16,11 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div>
+    <class-name-search class="mb5 mw7 center" />
+    <class-names-list class="mb5 mw7 center"
+      :classNames="searchResults" />
+  </div>
+</template>

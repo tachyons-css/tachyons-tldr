@@ -1,9 +1,3 @@
-<template>
-  <div class="pa3 br2 ba b--black-20 bg-white">
-    <slot></slot>
-  </div>
-</template>
-
 <script>
 export default {
   name: 'terminal',
@@ -12,3 +6,9 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div class="pa3 br2 ba b--black-20 bg-white shadow-hover">
+    <slot></slot>
+  </div>
+</template>

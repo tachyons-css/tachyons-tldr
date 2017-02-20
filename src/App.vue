@@ -4,6 +4,18 @@ import AppHeader from './components/AppHeader';
 export default {
   name: 'app',
   components: { AppHeader },
+  data() {
+    return {
+      transitionName: 'slide-right',
+    };
+  },
+  watch: {
+    $route(to, from) {
+      const toDepth = to.meta.index;
+      const fromDepth = from.meta.index;
+      this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left';
+    },
+  },
 };
 </script>
 
@@ -13,8 +25,8 @@ export default {
 
     <app-header></app-header>
 
-    <transition name="slide-left">
-      <router-view class="absolute w-100 ph3 slide"></router-view>
+    <transition :name="transitionName">
+      <main is="router-view" class="absolute w-100 ph3 slide"></main>
     </transition>
 
   </div>
@@ -22,17 +34,15 @@ export default {
 
 <style>
   .slide {
-    transition: transform .5s cubic-bezier(0.55, 0, 0.1, 1);
+    transition: transform .6s cubic-bezier(0.55, 0, 0.1, 1);
   }
 
   .slide-left-enter,
   .slide-right-leave-active {
-    opacity: 0;
-    transform: translate(30px, 0);
+    transform: translate(100%, 0);
   }
   .slide-left-leave-active,
   .slide-right-enter {
-    opacity: 0;
-    transform: translate(-30px, 0);
+    transform: translate(-100%, 0);
   }
 </style>

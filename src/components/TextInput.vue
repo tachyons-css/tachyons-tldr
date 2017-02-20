@@ -1,9 +1,3 @@
-<template>
-  <input class="input-reset bn pa2"
-    :value="value"
-    @input="updateValue">
-</template>
-
 <script>
 import debounce from 'lodash.debounce';
 
@@ -17,7 +11,7 @@ export default {
     },
   },
   mounted() {
-    if (this.focus) { this.$el.focus(); }
+    if (this.focus) { setTimeout(() => this.$el.focus(), 600); }
   },
   methods: {
     updateValue: debounce(function textInputUpdateValue(e) {
@@ -26,3 +20,9 @@ export default {
   },
 };
 </script>
+
+<template>
+  <input class="input-reset pa2 outline-0 bn purple"
+    :value="value"
+    @input="updateValue">
+</template>

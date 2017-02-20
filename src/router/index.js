@@ -11,9 +11,9 @@ export default new Router({
   mode: 'history',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
-    { path: '/palette', component: PaletteView, meta: { hierarchy: 2 } },
-    { path: '/scales', component: ScalesView, meta: { hierarchy: 1 } },
-    { path: '/classes', component: ClassNamesView, meta: { hierarchy: 0 } },
+    { path: '/palette', component: PaletteView, meta: { index: 2 } },
+    { path: '/scales', component: ScalesView, meta: { index: 1 } },
+    { path: '/classes', component: ClassNamesView, meta: { index: 0 } },
     { path: '/', redirect: '/classes' },
   ],
 });

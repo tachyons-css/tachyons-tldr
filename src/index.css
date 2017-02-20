@@ -7,3 +7,7 @@
 .preserve-3d {
   transform-style: preserve-3d;
 }
+
+.ease-in-out-cubic {
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}

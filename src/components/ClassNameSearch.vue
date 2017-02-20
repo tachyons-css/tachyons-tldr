@@ -30,11 +30,10 @@ export default {
         CSS Property Query
       </label>
 
-      <span class="mr2 b near-black lh-solid">$ tldr</span>
+      <span class="mr2 b near-black lh-copy">$ tldr</span>
 
       <input is="text-input"
-        class="flex-auto code lh-solid br1"
-        style="background-color: rgba(0, 0, 0, 0.025);"
+        class="flex-auto code lh-copy"
         placeholder="search for a tachyons class name or a CSS property name"
         type="search"
         name="query"
