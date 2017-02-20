@@ -1,9 +1,11 @@
 <script>
 import AnimatedLine from './AnimatedLine';
+import Navigation from './Navigation';
+import NavLink from './NavLink';
 
 export default {
   name: 'app-header',
-  components: { AnimatedLine },
+  components: { AnimatedLine, Navigation, NavLink },
   computed: {
     navIndicatorLocation() {
       const index = this.$store.state.route.meta.index;
@@ -23,23 +25,20 @@ export default {
     <div class="flex-auto"></div>
 
     <div>
-      <nav class="tc lh-title flex mb1">
-        <router-link to="/"
-          class="link dim gray f6 dib mr3 w3"
-          title="Home">
+      <navigation>
+        <nav-link to="/"
+          title="Classes">
           classes
-        </router-link>
-        <router-link to="/scales"
-          class="link dim gray f6 dib mr3 w3"
-          title="About">
+        </nav-link>
+        <nav-link to="/scales"
+          title="Scales">
           scales
-        </router-link>
-        <router-link to="/palette"
-          class="link dim gray f6 dib w3"
-          title="Store">
+        </nav-link>
+        <nav-link to="/palette"
+          title="Palette">
           palette
-        </router-link>
-      </nav>
+        </nav-link>
+      </navigation>
       <animated-line class="gray"
         :size="64"
         :location="navIndicatorLocation" />
