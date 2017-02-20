@@ -2,11 +2,11 @@
 import { mapState, mapActions } from 'vuex';
 import Terminal from './Terminal';
 import FieldLabel from './FieldLabel';
-import TextInput from './TextInput';
+import TextField from './TextField';
 
 export default {
   name: 'class-name-search',
-  components: { Terminal, FieldLabel, TextInput },
+  components: { Terminal, FieldLabel, TextField },
   computed: {
     ...mapState([
       'classNames',
@@ -32,7 +32,7 @@ export default {
 
       <span class="mr2 b near-black lh-copy">$ tldr</span>
 
-      <input is="text-input"
+      <text-field
         class="flex-auto code lh-copy"
         placeholder="search for a tachyons class name or a CSS property name"
         type="search"
