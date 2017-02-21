@@ -35,7 +35,9 @@ export default {
         tldr Query
       </label>
 
-      <span class="b persian-green pv3">$ tldr</span>
+      <span class="b pv3 pr3 br b--black-20">
+        $ <span class="persian-green">tldr</span>
+      </span>
 
       <text-field ref="input"
         class="flex-auto code pv3 mh3"
