@@ -8,6 +8,31 @@
   transform-style: preserve-3d;
 }
 
+/* Custom Colours */
+.watermelon { color: #ff5a5f; }
+.bg-watermelon { background-color: #ff5a5f; }
+.b--watermelon { border-color: #ff5a5f; }
+
+.persian-green { color: #00a699; }
+.bg-persian-green { background-color: #00a699; }
+.b--persian-green { border-color: #00a699; }
+
+/*#FFD166 #E6FAFC #3C153B #89BD9E*/
+
+/* Easings */
 .ease-in-out-cubic {
-  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.swift-out {
+  transition: transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+/* Transitions */
+.slide-left-enter,
+.slide-right-leave-active {
+  transform: translate(100%, 0);
+}
+.slide-left-leave-active,
+.slide-right-enter {
+  transform: translate(-100%, 0);
 }

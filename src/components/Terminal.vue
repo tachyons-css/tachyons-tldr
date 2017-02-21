@@ -8,7 +8,7 @@ export default {
 </script>
 
 <template>
-  <div class="pa3 br2 ba b--black-20 bg-white shadow-hover">
-    <slot></slot>
+  <div class="br2 ba b--black-20 bg-white shadow-hover">
+    <slot />
   </div>
 </template>

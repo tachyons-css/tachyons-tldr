@@ -17,29 +17,39 @@ export default {
       'searchForProp',
     ]),
   },
+  mounted() {
+    setTimeout(() => {
+      this.$refs.input.$el.focus();
+    }, 800);
+  },
 };
 </script>
 
 <template>
   <terminal title="Tachyons">
-    <div class="code flex items-baseline">
+    <div class="code flex items-center ph3">
 
       <label is="field-label"
         for="query"
         hide>
-        CSS Property Query
+        tldr Query
       </label>
 
-      <span class="mr2 b near-black lh-copy">$ tldr</span>
+      <span class="b persian-green pv3">$ tldr</span>
 
-      <text-field
-        class="flex-auto code lh-copy"
-        placeholder="search for a tachyons class name or a CSS property name"
+      <text-field ref="input"
+        class="flex-auto code pv3 mh3"
+        placeholder="search for a CSS property name or class name"
         type="search"
         name="query"
-        focus
         :value="classNames.query"
         @change="searchForProp({ query: $event })" />
+
+      <label is="field-label"
+        slot="flags"
+        class="pl3 pv3 pointer b bl b--black-20">
+        <input type="checkbox"> --by-class-name
+      </label>
     </div>
   </terminal>
 </template>

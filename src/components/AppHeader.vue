@@ -17,29 +17,26 @@ export default {
 
 <template>
   <header class="mt4 mb6 mw8 center ph3 flex">
-    <h1 class="tc f5 mv0">
+    <h1 class="tc f4 mv0 watermelon">
       tachyons tldr
-      <small class="gray normal">v4.6.1</small>
+      <small class="fw2">v4.6.1</small>
     </h1>
 
     <div class="flex-auto"></div>
 
     <div>
       <navigation>
-        <nav-link to="/"
-          title="Classes">
-          classes
+        <nav-link to="/">
+          Classes
         </nav-link>
-        <nav-link to="/scales"
-          title="Scales">
-          scales
+        <nav-link to="/scales">
+          Scales
         </nav-link>
-        <nav-link to="/palette"
-          title="Palette">
-          palette
+        <nav-link to="/palette">
+          Palette
         </nav-link>
       </navigation>
-      <animated-line class="gray"
+      <animated-line class="watermelon"
         :size="64"
         :location="navIndicatorLocation" />
     </div>

@@ -11,38 +11,25 @@ export default {
   },
   watch: {
     $route(to, from) {
-      const toDepth = to.meta.index;
-      const fromDepth = from.meta.index;
-      this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left';
+      const toIndex = to.meta.index;
+      const fromIndex = from.meta.index;
+      this.transitionName = (
+        toIndex < fromIndex ? 'slide-right' : 'slide-left'
+      );
     },
   },
 };
 </script>
 
 <template>
-  <div id="app"
-    class="dark-gray sans-serif relative">
+  <div class="black-70 sans-serif">
 
     <app-header></app-header>
 
     <transition :name="transitionName">
-      <main is="router-view" class="absolute w-100 ph3 slide"></main>
+      <router-view class="absolute ph3 w-100 swift-out">
+      </router-view>
     </transition>
 
   </div>
 </template>
-
-<style>
-  .slide {
-    transition: transform .6s cubic-bezier(0.55, 0, 0.1, 1);
-  }
-
-  .slide-left-enter,
-  .slide-right-leave-active {
-    transform: translate(100%, 0);
-  }
-  .slide-left-leave-active,
-  .slide-right-enter {
-    transform: translate(-100%, 0);
-  }
-</style>

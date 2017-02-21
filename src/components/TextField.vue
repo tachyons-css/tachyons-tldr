@@ -11,7 +11,7 @@ export default {
     },
   },
   mounted() {
-    if (this.focus) { setTimeout(() => this.$el.focus(), 600); }
+    if (this.focus) { this.$el.focus(); }
   },
   methods: {
     updateValue: debounce(function textInputUpdateValue(e) {
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-  <input class="input-reset pa2 outline-0 bn purple"
+  <input class="input-reset pa0 outline-0 bn black-70"
     :value="value"
     @input="updateValue">
 </template>

@@ -8,7 +8,7 @@ export default {
 </script>
 
 <template>
-  <router-link class="link dim gray f6 dib mr3 w3"
+  <router-link class="link dim black-70 f5 dib mr3 w3"
     :to="to">
     <slot></slot>
   </router-link>
