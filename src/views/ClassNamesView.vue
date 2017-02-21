@@ -1,5 +1,5 @@
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 import TldrSearch from '../components/TldrSearch';
 import ClassNamesList from '../components/ClassNamesList';
 
@@ -7,6 +7,7 @@ export default {
   name: 'class-names-view',
   components: { TldrSearch, ClassNamesList },
   computed: {
+    ...mapState(['terminal']),
     ...mapGetters([
       'searchResults',
     ]),

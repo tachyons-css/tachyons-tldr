@@ -8,6 +8,28 @@
   transform-style: preserve-3d;
 }
 
+.animated-shadow {
+  cursor: pointer;
+  position: relative;
+  transition: all .5s cubic-bezier( .165, .84, .44, 1 );
+}
+.animated-shadow:after {
+  content: '';
+  box-shadow: 0 2px 4px 0 #dce0e0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: opacity 0.6s cubic-bezier( .165, .84, .44, 1 );
+}
+
+.active.animated-shadow:after,
+.animated-shadow:hover:after { opacity: 1; }
+
+
 /* Custom Colours */
 .watermelon { color: #ff5a5f; }
 .bg-watermelon { background-color: #ff5a5f; }
