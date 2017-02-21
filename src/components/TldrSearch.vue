@@ -43,7 +43,7 @@ export default {
         $ <span class="persian-green">tldr</span>
       </span>
 
-      <input is="text-field"
+      <text-field
         ref="input"
         class="flex-auto code pv3 mh3"
         placeholder="search for a CSS property name or class name"
@@ -51,9 +51,9 @@ export default {
         name="query"
         :value="classNames.query"
         @change="searchForProp({ query: $event })"
-        @blur="deactivateTerminal()"
-        @click="activateTerminal()"
-        @focus="activateTerminal()" />
+        @blur.native="deactivateTerminal()"
+        @click.native="activateTerminal()"
+        @focus.native="activateTerminal()" />
 
       <label is="field-label"
         slot="flags"

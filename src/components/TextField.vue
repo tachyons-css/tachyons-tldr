@@ -27,8 +27,5 @@ export default {
 <template>
   <input class="input-reset pa0 outline-0 bn black-70"
     :value="value"
-    @input="onUpdate"
-    @blur="onBlur"
-    @click="onClick"
-    @focus="onFocus">
+    @input="onUpdate">
 </template>
