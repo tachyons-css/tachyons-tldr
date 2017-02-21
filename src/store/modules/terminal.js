@@ -20,13 +20,6 @@ const getters = {
  * Actions
  */
 const actions = {
-  activateTerminal({ commit }) {
-    commit(TERMINAL.ACTIVATE, true);
-  },
-
-  deactivateTerminal({ commit }) {
-    commit(TERMINAL.DEACTIVATE, false);
-  },
 };
 
 
@@ -35,12 +28,12 @@ const actions = {
  */
 /* eslint-disable no-param-reassign */
 const mutations = {
-  [TERMINAL.ACTIVATE]: (state, value) => {
-    state.isActive = value;
+  activateTerminal: (state) => {
+    state.isActive = true;
   },
 
-  [TERMINAL.DEACTIVATE]: (state, value) => {
-    state.isActive = value;
+  deactivateTerminal: (state) => {
+    state.isActive = false;
   },
 };
 /* eslint-enable no-param-reassign */

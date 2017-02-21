@@ -17,9 +17,6 @@ export default {
     onUpdate: debounce(function textInputUpdateValue(e) {
       this.$emit('change', e.target.value);
     }, 300),
-    onBlur(e) { this.$emit('blur', e); },
-    onClick(e) { this.$emit('click', e); },
-    onFocus(e) { this.$emit('focus', e); },
   },
 };
 </script>

@@ -24,6 +24,7 @@ const getters = {
 
     return groups[name] ? utils.groupClasses(groups[name]) : [];
   },
+  query: ({ query }) => query,
 };
 
 
@@ -31,13 +32,13 @@ const getters = {
  * Actions
  */
 const actions = {
-  searchForProp({ commit }, { query }) {
-    commit(CLASS_NAMES.SEARCH, { query });
-  },
-
-  parseClasses({ commit }) {
-    commit(CLASS_NAMES.PARSE, { groups: groupedClasses });
-  },
+  // searchForProp({ commit }, { query }) {
+  //   commit(CLASS_NAMES.SEARCH, { query });
+  // },
+  //
+  // parseClasses({ commit }) {
+  //   commit(CLASS_NAMES.PARSE, { groups: groupedClasses });
+  // },
 };
 
 
@@ -46,12 +47,19 @@ const actions = {
  */
 /* eslint-disable no-param-reassign */
 const mutations = {
-  [CLASS_NAMES.SEARCH]: (state, { query }) => {
+  // [CLASS_NAMES.SEARCH]: (state, { query }) => {
+  //   state.query = query;
+  // },
+  //
+  // [CLASS_NAMES.PARSE]: (state, { groups }) => {
+  //   state.groups = groups;
+  // },
+  searchForProp(state, { query }) {
     state.query = query;
   },
 
-  [CLASS_NAMES.PARSE]: (state, { groups }) => {
-    state.groups = groups;
+  parseClasses(state) {
+    state.groups = groupedClasses;
   },
 };
 /* eslint-enable no-param-reassign */
