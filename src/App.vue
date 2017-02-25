@@ -1,5 +1,5 @@
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import AppHeader from './components/AppHeader';
 
 export default {
@@ -11,9 +11,13 @@ export default {
     };
   },
   computed: {
-    ...mapState([
-      'tachyons',
-    ]),
+    ...mapState('tachyons', ['version']),
+  },
+  methods: {
+    ...mapActions('tachyons', ['loadStyles']),
+  },
+  beforeMount() {
+    this.loadStyles();
   },
   watch: {
     $route(to, from) {
@@ -30,7 +34,7 @@ export default {
 <template>
   <div class="black-70 sans-serif">
 
-    <app-header :version="tachyons.version"></app-header>
+    <app-header :version="version"></app-header>
 
     <transition :name="transitionName">
       <router-view class="absolute ph3 w-100 swift-out">

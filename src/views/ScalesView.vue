@@ -8,10 +8,6 @@ export default {
       'searchResults',
     ]),
   },
-  beforeMount() {
-    // this.$store.dispatch('parseClasses');
-    this.$store.commit('parseClasses');
-  },
 };
 </script>
 

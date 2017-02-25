@@ -1,5 +1,5 @@
 import { TACHYONS } from '../mutation-types';
-import { groupedClasses } from '../../api/styles';
+import { groupedClasses, colours as tachyonsColours } from '../../api';
 import { dependencies } from '../../../package.json';
 
 
@@ -9,6 +9,7 @@ import { dependencies } from '../../../package.json';
 const tachyonsState = {
   version: dependencies.tachyons.replace('^', 'v'),
   classGroups: {},
+  colours: {},
 };
 
 
@@ -24,7 +25,10 @@ const getters = {
  */
 const actions = {
   loadStyles({ commit }) {
-    commit(TACHYONS.LOAD_STYLES, groupedClasses);
+    commit(TACHYONS.LOAD_STYLES, {
+      classGroups: groupedClasses,
+      colours: tachyonsColours,
+    });
   },
 };
 
@@ -34,14 +38,16 @@ const actions = {
  */
 /* eslint-disable no-param-reassign */
 const mutations = {
-  [TACHYONS.LOAD_STYLES](state, classGroups) {
+  [TACHYONS.LOAD_STYLES](state, { classGroups, colours }) {
     state.classGroups = classGroups;
+    state.colours = colours;
   },
 };
 /* eslint-enable no-param-reassign */
 
 
 export default {
+  namespaced: true,
   state: tachyonsState,
   getters,
   actions,

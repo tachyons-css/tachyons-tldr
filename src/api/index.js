@@ -1,37 +1,42 @@
 import postcssJs from 'postcss-js';
 import postcss from 'postcss';
 import R from 'ramda';
+import {
+  toKebabCase,
+  getColours,
+  getClasses,
+  getAtMediaClasses,
+  renameKeys,
+  renameBy,
+} from './utils';
 
-const css = require('!raw-loader!tachyons');
+/**
+ * Colours
+ */
+const coloursModule = require('!raw-loader!tachyons/src/_colors.css');
 
-const getClasses = R.pickBy(R.compose(R.test(/^\./), R.nthArg(1)));
-const getAtMediaRules = R.pickBy(R.compose(R.test(/^@/), R.nthArg(1)));
-const getAtMediaClasses = R.compose(
-  R.mergeAll,
-  R.values,
-  getAtMediaRules,
-);
-/* eslint-disable no-param-reassign */
-const renameKeys = R.curry((keysMap, obj) => (
-  R.reduce((acc, key) => {
-    acc[keysMap[key] || key] = obj[key];
-    return acc;
-  }, {}, R.keys(obj))
-));
-/* eslint-enable no-param-reassign */
+const coloursRoot = postcss.parse(coloursModule);
 
-const root = postcss.parse(css);
+export const colours = R.compose(
+  renameBy(R.replace('-', '')),
+  getColours,
+  postcssJs.objectify,
+)(coloursRoot);
+
+
+/**
+ * All Styles
+ */
+const tachyonsCss = require('!raw-loader!tachyons');
+
+const cssRoot = postcss.parse(tachyonsCss);
 
 export const cssObj = R.compose(
   R.map(renameKeys({ cssFloat: 'float' })),
   R.converge(R.merge, [getClasses, getAtMediaClasses]),
   postcssJs.objectify,
-)(root);
+)(cssRoot);
 
-const toKebabCase = s => s.replace(
-  /\.?([A-Z])/g,
-  (x, y) => `-${y.toLowerCase()}`,
-).replace(/^-/, '');
 
 function splitRules(props, className) {
   return R.map(R.pair(className), props);

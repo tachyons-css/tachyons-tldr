@@ -1,5 +1,5 @@
 import R, { __ } from 'ramda';
-import { propNamesList, cssObj } from '../../api/styles';
+import { propNamesList, cssObj } from '../../api';
 
 const mediaQueryRegex = /(.+)-(ns|m|l)$/;
 
