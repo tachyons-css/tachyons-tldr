@@ -4,6 +4,9 @@ export const TERMINAL = {
 };
 
 export const CLASS_NAMES = {
-  SEARCH: 'CLASS_NAMES_SEARCH',
-  PARSE: 'CLASS_NAMES_PARSE',
+  SEARCH: 'CLASS_NAMES/SEARCH',
+};
+
+export const TACHYONS = {
+  LOAD_STYLES: 'TACHYONS/LOAD_STYLES',
 };

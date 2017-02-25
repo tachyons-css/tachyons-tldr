@@ -9,7 +9,8 @@ export default {
     ]),
   },
   beforeMount() {
-    this.$store.dispatch('parseClasses');
+    // this.$store.dispatch('parseClasses');
+    this.$store.commit('parseClasses');
   },
 };
 </script>

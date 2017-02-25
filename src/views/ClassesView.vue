@@ -1,5 +1,5 @@
 <script>
-import { mapGetters, mapState, mapMutations } from 'vuex';
+import { mapGetters, mapState, mapMutations, mapActions } from 'vuex';
 import Terminal from '../components/Terminal';
 import FieldLabel from '../components/FieldLabel';
 import ClassNamesList from '../components/ClassNamesList';
@@ -17,15 +17,15 @@ export default {
     ]),
   },
   methods: {
+    ...mapActions(['loadStyles']),
     ...mapMutations([
-      'parseClasses',
-      'searchForProp',
+      'searchForClassByProp',
       'activateTerminal',
       'deactivateTerminal',
     ]),
   },
   beforeMount() {
-    this.parseClasses();
+    this.loadStyles();
   },
 };
 </script>
@@ -36,7 +36,7 @@ export default {
       command="tldr"
       :value="classNames.query"
       :isActive="terminal.isActive"
-      @execute="searchForProp($event)"
+      @execute="searchForClassByProp($event)"
       @activate="activateTerminal"
       @deactivate="deactivateTerminal">
 

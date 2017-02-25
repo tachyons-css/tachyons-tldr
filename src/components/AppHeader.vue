@@ -6,6 +6,9 @@ import NavLink from './NavLink';
 export default {
   name: 'app-header',
   components: { AnimatedLine, Navigation, NavLink },
+  props: {
+    version: String,
+  },
   computed: {
     navIndicatorLocation() {
       const index = this.$store.state.route.meta.index;
@@ -19,7 +22,7 @@ export default {
   <header class="mt4 mb6 mw8 center ph3 flex">
     <h1 class="tc f4 mv0 watermelon">
       tachyons tldr
-      <small class="fw2">v4.6.1</small>
+      <small class="fw2">{{ version }}</small>
     </h1>
 
     <div class="flex-auto"></div>

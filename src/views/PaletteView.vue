@@ -8,9 +8,6 @@ export default {
       'searchResults',
     ]),
   },
-  beforeMount() {
-    this.$store.dispatch('parseClasses');
-  },
 };
 </script>
 

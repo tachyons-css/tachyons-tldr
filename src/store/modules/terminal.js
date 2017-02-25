@@ -1,4 +1,4 @@
-import { TERMINAL } from '../mutation-types';
+// import { TERMINAL } from '../mutation-types';
 
 /**
  * initial state
