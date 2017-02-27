@@ -34,10 +34,13 @@ export default {
 <template>
   <div class="black-70 sans-serif">
 
-    <app-header :version="version"></app-header>
+    <div class="ph3">
+      <app-header class="mt4 mb5 mw8 center"
+        :version="version" />
+    </div>
 
     <transition :name="transitionName">
-      <router-view class="absolute ph3 w-100 swift-out">
+      <router-view class="absolute ph3 mb5 w-100 swift-out">
       </router-view>
     </transition>
 

@@ -1,8 +1,10 @@
 <script>
 import { mapState } from 'vuex';
+import ColourChip from '../components/ColourChip';
 
 export default {
   name: 'app',
+  components: { ColourChip },
   computed: {
     ...mapState('tachyons', ['colours']),
   },
@@ -11,12 +13,23 @@ export default {
 
 <template>
   <div>
-    <div class="mw7 center">
-      <h1 class="mt0">Palette</h1>
-      {{ colours }}
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
+    <div class="mw8 center">
+
+      <h2>Solid</h2>
+      <div class="mb5 flex flex-wrap">
+        <colour-chip class="w-40 w-25-m w-25-l mb3 pr3 flex-auto"
+          v-for="(colour, name) in colours.solid"
+          :colour="colour"
+          :name="name" />
+      </div>
+
+      <h2>Alpha</h2>
+      <div class="flex flex-wrap">
+        <colour-chip class="w-40 w-25-m w-20-l mb3 pr2 flex-auto"
+          v-for="(colour, name, index) in colours.alpha"
+          :colour="colour"
+          :name="name" />
+      </div>
     </div>
   </div>
 </template>

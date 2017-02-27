@@ -16,6 +16,11 @@ export const renameBy = fn => obj =>
     R.toPairs,
   )(obj);
 
+export const toTitleCase = s => s.replace(
+  /\.?([0-9]+|[A-Z])/g,
+  (x, y) => ` ${y}`,
+).replace(/^-/, '').trim();
+
 export const toKebabCase = s => s.replace(
   /\.?([A-Z])/g,
   (x, y) => `-${y.toLowerCase()}`,

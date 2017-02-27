@@ -44,7 +44,7 @@ export default {
 
     </terminal>
 
-    <class-names-list class="mb5 mw7 center"
+    <class-names-list class="mb5 mw8 center"
       :classNames="searchResults" />
   </div>
 </template>

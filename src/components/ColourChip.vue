@@ -9,15 +9,15 @@ export default {
 </script>
 
 <template>
-  <div class="fl w-100 w-50-m w-25-l mb1">
-
-    <div :style="{ backgroundColor: colour }"
-      class="fl w-40 pv4" />
-
-    <div class="fl w-60 lh-copy pl2 pt2">
-      <b class="db">{{ name }}</b>
-      <code class="f6">{{ colour }}</code>
+  <div>
+    <div class="h3 relative flex items-center justify-center br1 br--top overflow-hidden bt bl br b--black-10">
+      <div class="absolute top-0 right-0 bottom-0 left-0 bg-checkered" />
+      <div class="absolute top-0 right-0 bottom-0 left-0"
+        :style="{ backgroundColor: colour }" />
     </div>
-
+    <div class="bg-white flex-auto lh-copy pl2 pv1 ba b--black-10 br1 br--bottom">
+      <b class="db truncate dark-gray f6">{{ name }}</b>
+      <code class="f6 truncate light-silver">{{ colour }}</code>
+    </div>
   </div>
 </template>

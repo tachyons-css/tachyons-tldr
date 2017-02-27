@@ -7,7 +7,7 @@ import * as utils from './utils';
  */
 const classNamesState = {
   query: null,
-  groups: {},
+  byClassName: false,
 };
 
 

@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-  <header class="mt4 mb6 mw8 center ph3 flex">
+  <header class="flex">
     <h1 class="tc f4 mv0 watermelon">
       tachyons tldr
       <small class="fw2">{{ version }}</small>
@@ -29,10 +29,12 @@ export default {
 
     <div>
       <navigation>
-        <nav-link to="/">
+        <nav-link class="mr3"
+          to="/">
           Classes
         </nav-link>
-        <nav-link to="/scales">
+        <nav-link class="mr3"
+          to="/scales">
           Scales
         </nav-link>
         <nav-link to="/palette">
