@@ -16,6 +16,13 @@ export const renameBy = fn => obj =>
     R.toPairs,
   )(obj);
 
+export const filterWithKeys = pred => obj => R.compose(
+    R.fromPairs,
+    R.filter(R.apply(pred)),
+    R.toPairs,
+  )(obj);
+
+
 export const toTitleCase = s => s.replace(
   /\.?([0-9]+|[A-Z])/g,
   (x, y) => ` ${y}`,
@@ -26,7 +33,11 @@ export const toKebabCase = s => s.replace(
   (x, y) => `-${y.toLowerCase()}`,
 ).replace(/^-/, '');
 
-export const getColours = R.prop(':root');
+
+export const isMediaRule = R.test(/^@media.+/);
+
+
+export const getRoot = R.prop(':root');
 
 export const getClasses = R.pickBy(R.compose(R.test(/^\./), R.nthArg(1)));
 
