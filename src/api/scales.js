@@ -3,33 +3,32 @@ import postcss from 'postcss';
 import R from 'ramda';
 import {
   getRoot,
-  filterWithKeys,
-  isMediaRule,
+  nonMediaValuesBy,
 } from './utils';
 
-/**
- * Spacing
- */
-const spacingModule = require('!raw-loader!tachyons/src/_spacing.css');
-
-const spacingRoot = postcss.parse(spacingModule);
-
-export const spacingScale = R.compose(
-  R.values,
-  getRoot,
-  postcssJs.objectify,
-)(spacingRoot);
+/* eslint-disable */
+const valuesFromModule = (valueGetter, moduleName) => {
+  const module = require(`!raw-loader!tachyons/src/_${moduleName}.css`);
+  const root = postcss.parse(module);
+  return R.compose(valueGetter, postcssJs.objectify)(root);
+};
+/* eslint-enable */
 
 
-/**
- * Type Scale
- */
-const typeScaleModule = require('!raw-loader!tachyons/src/_type-scale.css');
+const scaleParsers = {
+  spacing: R.compose(R.values, getRoot),
 
-const typeScaleRoot = postcss.parse(typeScaleModule);
+  'type-scale': nonMediaValuesBy(R.prop('fontSize')),
 
-export const typeScale = R.compose(
-  R.map(R.prop('fontSize')),
-  filterWithKeys(R.complement(isMediaRule)),
-  postcssJs.objectify,
-)(typeScaleRoot);
+  'font-weight': nonMediaValuesBy(R.prop('fontWeight')),
+
+  'border-radius': nonMediaValuesBy(R.ifElse(R.has('borderRadius'),
+      R.prop('borderRadius'),
+      R.identity,
+    )),
+};
+
+const scales = R.mapObjIndexed(valuesFromModule, scaleParsers);
+console.log(scales);
+
+export default scales;

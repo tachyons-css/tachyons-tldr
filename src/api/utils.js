@@ -1,3 +1,4 @@
+import postcssJs from 'postcss-js';
 import R from 'ramda';
 
 /* eslint-disable no-param-reassign */
@@ -36,7 +37,6 @@ export const toKebabCase = s => s.replace(
 
 export const isMediaRule = R.test(/^@media.+/);
 
-
 export const getRoot = R.prop(':root');
 
 export const getClasses = R.pickBy(R.compose(R.test(/^\./), R.nthArg(1)));
@@ -48,3 +48,8 @@ export const getAtMediaClasses = R.compose(
   R.values,
   getAtMediaRules,
 );
+
+export const nonMediaValuesBy = R.curry((getProp, root) => R.compose(
+  R.map(getProp),
+  filterWithKeys(R.complement(isMediaRule)),
+)(root));
