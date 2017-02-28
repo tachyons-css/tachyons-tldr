@@ -23,9 +23,29 @@ const scaleParsers = {
   'font-weight': nonMediaValuesBy(R.prop('fontWeight')),
 
   'border-radius': nonMediaValuesBy(R.ifElse(R.has('borderRadius'),
-      R.prop('borderRadius'),
-      R.identity,
-    )),
+    R.prop('borderRadius'),
+    R.identity,
+  )),
+
+  'border-widths': nonMediaValuesBy(R.ifElse(R.has('borderWidth'),
+    R.prop('borderWidth'),
+    R.identity,
+  )),
+
+  heights: R.compose(
+    R.omit(['.h-auto', '.h-inherit', '.min-h-100', '.min-vh-100']),
+    nonMediaValuesBy(R.prop('height'))
+  ),
+
+  widths: R.compose(
+    R.omit(['.w-auto']),
+    nonMediaValuesBy(R.prop('width')),
+  ),
+
+  'max-widths': R.compose(
+    R.omit(['.mw-none']),
+    nonMediaValuesBy(R.prop('maxWidth')),
+  ),
 };
 
 const scales = R.mapObjIndexed(valuesFromModule, scaleParsers);

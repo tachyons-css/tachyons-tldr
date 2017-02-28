@@ -1,4 +1,3 @@
-import postcssJs from 'postcss-js';
 import R from 'ramda';
 
 /* eslint-disable no-param-reassign */
