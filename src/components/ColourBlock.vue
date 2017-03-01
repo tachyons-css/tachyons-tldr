@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-  <div class="flex items-center pa3"
+  <div class="pa3"
     :style="blockStyles(colour)">
     <div>
       <b class="db truncate f6">{{ name }}</b>
