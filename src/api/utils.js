@@ -1,5 +1,6 @@
 import R from 'ramda';
 
+// Key name manipulators
 /* eslint-disable no-param-reassign */
 export const renameKeys = R.curry((keysMap, obj) => (
   R.reduce((acc, key) => {
@@ -23,6 +24,7 @@ export const filterWithKeys = pred => obj => R.compose(
   )(obj);
 
 
+// Case convertors
 export const toTitleCase = s => s.replace(
   /\.?([0-9]+|[A-Z])/g,
   (x, y) => ` ${y}`,
@@ -36,6 +38,7 @@ export const toKebabCase = s => s.replace(
 
 export const isMediaRule = R.test(/^@media.+/);
 
+// Getters
 export const getRoot = R.prop(':root');
 
 export const getClasses = R.pickBy(R.compose(R.test(/^\./), R.nthArg(1)));

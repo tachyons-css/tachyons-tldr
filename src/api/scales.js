@@ -1,10 +1,7 @@
 import postcssJs from 'postcss-js';
 import postcss from 'postcss';
 import R from 'ramda';
-import {
-  getRoot,
-  nonMediaValuesBy,
-} from './utils';
+import { nonMediaValuesBy, getRoot } from './utils';
 
 /* eslint-disable */
 const valuesFromModule = (valueGetter, moduleName) => {
