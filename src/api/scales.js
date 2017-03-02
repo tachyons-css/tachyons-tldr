@@ -1,7 +1,11 @@
 import postcssJs from 'postcss-js';
 import postcss from 'postcss';
 import R from 'ramda';
-import { nonMediaValuesBy, getRoot } from './utils';
+import {
+  nonMediaValuesBy,
+  getRoot,
+  renameKeys,
+} from './utils';
 
 /* eslint-disable */
 const valuesFromModule = (valueGetter, moduleName) => {
@@ -45,7 +49,13 @@ const scaleParsers = {
   ),
 };
 
-const scales = R.mapObjIndexed(valuesFromModule, scaleParsers);
-console.log(scales);
-
-export default scales;
+export const scales = R.compose(
+  renameKeys({
+    'type-scale': 'type',
+    'font-weight': 'fontWeight',
+    'border-radius': 'borderRadius',
+    'border-widths': 'borderWidth',
+    'max-widths': 'maxWidth',
+  }),
+  R.mapObjIndexed,
+)(valuesFromModule, scaleParsers);

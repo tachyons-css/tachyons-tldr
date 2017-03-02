@@ -1,5 +1,5 @@
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 import ColourChip from '../components/ColourChip';
 import ColourBlock from '../components/ColourBlock';
 
@@ -8,6 +8,7 @@ export default {
   components: { ColourChip, ColourBlock },
   computed: {
     ...mapState('tachyons', ['colours']),
+    ...mapGetters('tachyons', ['solidColours']),
   },
 };
 </script>
@@ -18,8 +19,8 @@ export default {
 
       <h2>Solid</h2>
       <div class="mb5 flex flex-wrap">
-        <colour-block class="w-50 w-33-m w-25-l h3"
-          v-for="(colour, name) in colours.solid"
+        <colour-block class="w-50 w-33-m w-25-l"
+          v-for="(colour, name) in solidColours"
           :colour="colour"
           :name="name" />
       </div>

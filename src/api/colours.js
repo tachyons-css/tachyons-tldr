@@ -4,7 +4,7 @@ import R from 'ramda';
 import {
   getRoot,
   renameKeys,
-  renameBy,
+  renameKeysBy,
   toTitleCase,
 } from './utils';
 
@@ -30,7 +30,7 @@ export const colours = R.compose(
   }),
   groupByAlpha,
   R.toPairs,
-  renameBy(toTitleCase),
+  renameKeysBy(toTitleCase),
   getRoot,
   postcssJs.objectify,
 )(coloursRoot);

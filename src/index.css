@@ -8,6 +8,18 @@
   transform-style: preserve-3d;
 }
 
+.debug-grid-bw {
+  background-image:
+    linear-gradient(transparent 7px, #cccccc 8px),
+    linear-gradient(90deg, transparent 7px, #cccccc 8px);
+  background-size: 8px 8px;
+  background-position: 0 3px;
+}
+
+.flex-grow {
+  flex: 1 0 8rem;
+}
+
 .animated-shadow {
   cursor: pointer;
   position: relative;

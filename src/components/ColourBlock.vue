@@ -1,17 +1,15 @@
 <script>
-import hello from 'hello-color';
-
 export default {
   name: 'colour-block',
   props: {
-    colour: String,
+    colour: Object,
     name: String,
   },
-  methods: {
-    blockStyles(colour) {
+  computed: {
+    blockStyles() {
       return {
-        backgroundColor: colour,
-        color: hello(colour).color,
+        backgroundColor: this.colour.value,
+        color: this.colour.negative,
       };
     },
   },
@@ -20,10 +18,8 @@ export default {
 
 <template>
   <div class="pa3"
-    :style="blockStyles(colour)">
-    <div>
-      <b class="db truncate f6">{{ name }}</b>
-      <code class="f6 truncate">{{ colour }}</code>
-    </div>
+    :style="blockStyles">
+    <b class="db truncate f6 mb1">{{ name }}</b>
+    <code class="db f6 truncate">{{ colour.value }}</code>
   </div>
 </template>

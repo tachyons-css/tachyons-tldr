@@ -10,7 +10,7 @@ export const renameKeys = R.curry((keysMap, obj) => (
 ));
 /* eslint-enable no-param-reassign */
 
-export const renameBy = fn => obj =>
+export const renameKeysBy = fn => obj =>
   R.compose(
     R.fromPairs,
     R.map(R.adjust(fn, 0)),
@@ -34,6 +34,11 @@ export const toKebabCase = s => s.replace(
   /\.?([A-Z])/g,
   (x, y) => `-${y.toLowerCase()}`,
 ).replace(/^-/, '');
+
+export const toCamelCase = s => s.replace(
+  /\W+(.)/g,
+  (x, y) => `-${y.toUpperCase()}`,
+).replace(/-/g, '');
 
 
 export const isMediaRule = R.test(/^@media.+/);
