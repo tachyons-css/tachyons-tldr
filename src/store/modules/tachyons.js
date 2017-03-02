@@ -35,6 +35,14 @@ const getters = {
   typeScale(state) {
     return state.scales.type;
   },
+  fontWeight(state) {
+    return R.compose(
+      R.fromPairs,
+      R.sort((a, b) => b[1] - a[1]),
+      R.toPairs,
+      R.path(['scales', 'fontWeight']),
+    )(state);
+  },
 };
 
 

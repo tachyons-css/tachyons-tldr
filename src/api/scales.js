@@ -21,7 +21,10 @@ const scaleParsers = {
 
   'type-scale': nonMediaValuesBy(R.prop('fontSize')),
 
-  'font-weight': nonMediaValuesBy(R.prop('fontWeight')),
+  'font-weight': R.compose(
+    R.omit(['.b', '.normal']),
+    nonMediaValuesBy(R.prop('fontWeight')),
+  ),
 
   'border-radius': nonMediaValuesBy(R.ifElse(R.has('borderRadius'),
     R.prop('borderRadius'),

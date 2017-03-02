@@ -7,7 +7,7 @@ export default {
   components: { TypeScale },
   computed: {
     ...mapGetters(['searchResults']),
-    ...mapGetters('tachyons', ['typeScale']),
+    ...mapGetters('tachyons', ['typeScale', 'fontWeight']),
   },
 };
 </script>
@@ -15,8 +15,14 @@ export default {
 <template>
   <div>
     <div class="mw8 center">
-      <h3 class="mt0 mb4">Type</h3>
-      <type-scale :scale="typeScale" />
+      <h3 class="f6 ttu tracked">Type Scale</h3>
+      <type-scale class="b mb6"
+        :scale="typeScale"
+        showGrid />
+
+      <h3 class="f6 ttu tracked">Font Weights</h3>
+      <type-scale class="f1"
+        :scale="fontWeight" />
     </div>
   </div>
 </template>

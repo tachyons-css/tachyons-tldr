@@ -5,6 +5,10 @@ export default {
   name: 'type-scale',
   props: {
     scale: Object,
+    showGrid: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     size() {
@@ -43,12 +47,13 @@ export default {
   <div class="overflow-x-auto">
     <table class="dt--fixed collapse">
       <tbody>
-        <transition-group class="debug-grid-bw"
+        <transition-group
+          :class="{ 'debug-grid-bw': showGrid }"
           appear
           tag="tr"
           v-bind:css="false"
           @enter="enter">
-          <td class="tc w4 b v-base pa0"
+          <td class="tc w3 v-base pa0"
             v-for="(value, selector, index) in scale"
             :key="index"
             :class="getClassNames(selector)"
@@ -56,7 +61,7 @@ export default {
           >A</td>
         </transition-group>
         <tr>
-          <td class="tc w4 pt2 gray fw2 code f6 v-btm"
+          <td class="tc w3 pt2 gray fw2 code f6 v-btm"
             v-for="(value, selector) in scale">
             .{{ getClassNames(selector)[0] }} ({{ value }})
           </td>
