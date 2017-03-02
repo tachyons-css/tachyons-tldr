@@ -9,7 +9,6 @@ export default {
     classNames: Array,
   },
   methods: {
-    /* eslint-disable */
     enter(el, done) {
       anime({
         targets: el,
@@ -22,7 +21,6 @@ export default {
         onComplete: done,
       });
     },
-    /* eslint-enable */
   },
 };
 </script>
