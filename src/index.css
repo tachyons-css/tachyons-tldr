@@ -10,8 +10,8 @@
 
 .debug-grid-bw {
   background-image:
-    linear-gradient(transparent 7px, #cccccc 8px),
-    linear-gradient(90deg, transparent 7px, #cccccc 8px);
+    linear-gradient(transparent 7px, #00a699 8px),
+    linear-gradient(90deg, transparent 7px, #00a699 8px);
   background-size: 8px 8px;
   background-position: 0 3px;
 }
@@ -46,6 +46,8 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23dddddd' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
+.origin-0-0 { transform-origin: 0 0; }
+
 
 /* Custom Colours */
 .watermelon { color: #ff5a5f; }
@@ -55,6 +57,12 @@
 .persian-green { color: #00a699; }
 .bg-persian-green { background-color: #00a699; }
 .b--persian-green { border-color: #00a699; }
+
+.washed-pink { color: #ffaa91 }
+.bg-washed-pink { background-color: #ffaa91 }
+.b--washed-pink { border-color: #ffaa91 }
+
+/*#ffb400 #ff7e82*/
 
 /*#FFD166 #E6FAFC #3C153B #89BD9E*/
 /*#9738f5 #00ffa5*/

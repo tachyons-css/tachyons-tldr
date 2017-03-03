@@ -2,7 +2,7 @@
 import anime from 'animejs';
 
 export default {
-  name: 'type-scale',
+  name: 'type-scale-grid',
   props: {
     scale: Object,
     showGrid: {
@@ -53,7 +53,7 @@ export default {
           tag="tr"
           v-bind:css="false"
           @enter="enter">
-          <td class="tc w3 v-base pa0"
+          <td class="tc w3 v-base pa0 mid-gray"
             v-for="(value, selector, index) in scale"
             :key="index"
             :class="getClassNames(selector)"

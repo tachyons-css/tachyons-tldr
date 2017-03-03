@@ -8,6 +8,8 @@ import {
 } from '../../api';
 import { dependencies } from '../../../package.json';
 
+const testFirst = regex => R.compose(R.test(regex), R.head);
+
 
 /**
  * initial state
@@ -31,6 +33,20 @@ const getters = {
         negative: hello(colour).color,
       })),
     )(state.colours.solid);
+  },
+  spacingScale(state) {
+    return state.scales.spacing;
+  },
+  widthScales(state) {
+    return R.compose(
+      R.map(R.fromPairs),
+      R.groupBy(R.cond([
+        [testFirst(/third/g), R.always('third')],
+        [testFirst(/-/g), R.always('percent')],
+        [R.T, R.always('step')],
+      ])),
+      R.toPairs,
+    )(state.scales.widths);
   },
   typeScale(state) {
     return state.scales.type;
