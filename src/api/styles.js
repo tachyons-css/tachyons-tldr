@@ -3,10 +3,10 @@ import postcss from 'postcss';
 import R from 'ramda';
 import {
   toKebabCase,
-  getClasses,
-  getAtMediaClasses,
+  selectors,
+  atMediaClasses,
   renameKeys,
-} from './utils';
+} from '../utils';
 
 
 /**
@@ -18,7 +18,7 @@ const cssRoot = postcss.parse(tachyonsCss);
 
 export const cssObj = R.compose(
   R.map(renameKeys({ cssFloat: 'float' })),
-  R.converge(R.merge, [getClasses, getAtMediaClasses]),
+  R.converge(R.merge, [selectors, atMediaClasses]),
   postcssJs.objectify,
 )(cssRoot);
 

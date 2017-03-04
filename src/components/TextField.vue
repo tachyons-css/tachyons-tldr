@@ -2,7 +2,7 @@
 import debounce from 'lodash.debounce';
 
 export default {
-  name: 'text-input',
+  name: 'text-field',
   props: {
     value: String,
     focus: {

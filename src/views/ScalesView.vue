@@ -48,8 +48,8 @@ export default {
         :scale="borderRadius.scale"
         show-value />
 
-      <h3 class="f6 ttu tracked">Border Radius</h3>
-      <p>when paired with a border scale class</p>
+      <h3 class="f6 ttu tracked">Border Radius Position</h3>
+      <p>Allows you to control the border radius position when paired with one of the a border scale classed.</p>
       <box-scale-grid class="mb6"
         :scale="borderRadius.positional" />
     </div>

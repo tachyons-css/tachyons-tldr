@@ -5,23 +5,29 @@ import {
   groupedClasses,
   colours,
   scales,
+  version,
 } from '../../api';
-import { renameKeysBy } from '../../api/utils';
-import { dependencies } from '../../../package.json';
+import * as utils from '../../utils';
 
-const testFirst = regex => R.compose(R.test(regex), R.head);
 const classNamesLens = R.lensPath([1, 'classNames']);
-const countLens = R.lens(
-  R.head,
-  R.assocPath([1, 'count']),
-);
+
+/**
+ * ☐ spacing
+ * ✅ type-scale
+ * ✅ font-weight
+ * ✅ border-radius
+ * ☐ border-widths
+ * ☐ heights
+ * ✅ widths
+ * ☐ max-widths
+ */
 
 
 /**
  * initial state
  */
 const tachyonsState = {
-  version: dependencies.tachyons.replace('^', 'v'),
+  version,
   classGroups: {},
   colours: {},
   scales: {},
@@ -47,11 +53,12 @@ const getters = {
   widthScales: R.compose(
     R.map(R.fromPairs),
     R.groupBy(R.cond([
-      [testFirst(/third/g), R.always('third')],
-      [testFirst(/-/g), R.always('percent')],
+      [utils.testFirst(/third/g), R.always('third')],
+      [utils.testFirst(/-/g), R.always('percent')],
       [R.T, R.always('step')],
     ])),
     R.toPairs,
+    utils.allSelectorsToClassNames,
     R.path(['scales', 'widths']),
   ),
 
@@ -69,21 +76,17 @@ const getters = {
   borderRadius: R.compose(
     R.map(R.fromPairs),
     R.groupBy(R.cond([
-      [testFirst(/top|left|right|bottom/), R.always('positional')],
+      [utils.testFirst(/top|left|right|bottom/), R.always('positional')],
       [R.T, R.always('scale')],
     ])),
-    // R.map(R.over(countLens, R.replace(/br(-+)?/g, ''))),
     R.map(R.cond([
-      [testFirst(/pill/), R.set(classNamesLens, 'w4')],
-      [
-        testFirst(/(top|left|right|bottom)/),
-        R.set(classNamesLens, 'w4 br3'),
-      ],
-      [R.T, R.set(classNamesLens, 'w3')],
+      [utils.testFirst(/pill/), R.set(classNamesLens, 'w4 h3')],
+      [utils.isPositional, R.set(classNamesLens, 'w4 br3 h3')],
+      [R.T, R.set(classNamesLens, 'w3 h3')],
     ])),
     R.toPairs,
     R.map(R.objOf('value')),
-    renameKeysBy(R.replace(/\./, '')),
+    utils.allSelectorsToClassNames,
     R.path(['scales', 'borderRadius']),
   ),
 };
@@ -106,7 +109,6 @@ const actions = {
 /**
  * Mutations
  */
-/* eslint-disable no-param-reassign */
 const mutations = {
   [TACHYONS.LOAD_STYLES](state, payload) {
     state.classGroups = payload.classGroups;
@@ -114,7 +116,6 @@ const mutations = {
     state.scales = payload.scales;
   },
 };
-/* eslint-enable no-param-reassign */
 
 
 export default {

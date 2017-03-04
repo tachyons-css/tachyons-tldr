@@ -3,9 +3,9 @@ import postcss from 'postcss';
 import R from 'ramda';
 import {
   nonMediaValuesBy,
-  getRoot,
+  root,
   renameKeys,
-} from './utils';
+} from '../utils';
 
 /* eslint-disable */
 const valuesFromModule = (valueGetter, moduleName) => {
@@ -17,7 +17,7 @@ const valuesFromModule = (valueGetter, moduleName) => {
 
 
 const scaleParsers = {
-  spacing: R.compose(R.values, getRoot),
+  spacing: R.compose(R.values, root),
 
   'type-scale': nonMediaValuesBy(R.prop('fontSize')),
 

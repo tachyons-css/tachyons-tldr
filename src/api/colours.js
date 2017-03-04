@@ -2,11 +2,11 @@ import postcssJs from 'postcss-js';
 import postcss from 'postcss';
 import R from 'ramda';
 import {
-  getRoot,
+  root,
   renameKeys,
   renameKeysBy,
   toTitleCase,
-} from './utils';
+} from '../utils';
 
 /**
  * Colours
@@ -31,6 +31,6 @@ export const colours = R.compose(
   groupByAlpha,
   R.toPairs,
   renameKeysBy(toTitleCase),
-  getRoot,
+  root,
   postcssJs.objectify,
 )(coloursRoot);

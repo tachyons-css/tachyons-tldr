@@ -16,12 +16,6 @@ export default {
     },
   },
   methods: {
-    getClassNames(selector) {
-      return selector
-        .replace(/(\n|\.)/g, '')
-        .trim()
-        .split(',');
-    },
     enter(el, done) {
       anime({
         targets: el,
@@ -43,7 +37,7 @@ export default {
     <div class="mr3">
       <div class="tr f6 h1 mb2 gray lh-solid fw3 code"
         v-for="(value, selector) in scale">
-        .{{ getClassNames(selector)[0] }} ({{ value }})
+        .{{ selector }} ({{ value }})
       </div>
     </div>
     <transition-group appear
@@ -54,7 +48,7 @@ export default {
       <div class="tc h1 origin-0-0 bg-light-gray mr3 mb2 br b--persian-green bw1"
         v-for="(value, selector, index) in scale"
         :key="index"
-        :class="getClassNames(selector)"
+        :class="selector"
         :data-index="index">
       </div>
     </transition-group>

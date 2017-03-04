@@ -1,6 +1,6 @@
 import R from 'ramda';
 // import { CLASS_NAMES } from '../mutation-types';
-import * as utils from './utils';
+import * as utils from '../../utils';
 
 /**
  * initial state
