@@ -51,7 +51,7 @@ export const allSelectorsToClassNames = renameKeysBy(selectorToClassName);
  */
 export const isMediaRule = R.test(/^@media.+/);
 export const testFirst = regex => R.compose(R.test(regex), R.head);
-export const isPositional = testFirst(/(top|left|right|bottom)/);
+export const classNameIsPositional = testFirst(/(top|left|right|bottom)/);
 const mediaQueryRegex = /(.+)-(ns|m|l)$/;
 
 // Getters

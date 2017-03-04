@@ -16,12 +16,6 @@ export default {
     },
   },
   methods: {
-    getClassNames(selector) {
-      return selector
-        .replace(/(\n|\.)/g, '')
-        .trim()
-        .split(',');
-    },
     enter(el, done) {
       anime({
         targets: el,
@@ -56,14 +50,14 @@ export default {
           <td class="tc w4 w3-m w3-l v-base pa0 mid-gray"
             v-for="(value, selector, index) in scale"
             :key="index"
-            :class="getClassNames(selector)"
+            :class="selector"
             :data-index="index"
           >A</td>
         </transition-group>
         <tr class="bg-white">
           <td class="tc w3 pt2 gray fw2 code f6 v-btm"
             v-for="(value, selector) in scale">
-            .{{ getClassNames(selector)[0] }} ({{ value }})
+            .{{ selector }} ({{ value }})
           </td>
         </tr>
       </tbody>

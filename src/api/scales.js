@@ -2,6 +2,7 @@ import postcssJs from 'postcss-js';
 import postcss from 'postcss';
 import R from 'ramda';
 import {
+  allSelectorsToClassNames,
   nonMediaValuesBy,
   root,
   renameKeys,
@@ -53,11 +54,12 @@ const scaleParsers = {
 };
 
 export const scales = R.compose(
+  R.map(allSelectorsToClassNames),
   renameKeys({
     'type-scale': 'type',
     'font-weight': 'fontWeight',
     'border-radius': 'borderRadius',
-    'border-widths': 'borderWidth',
+    'border-widths': 'borderWidths',
     'max-widths': 'maxWidth',
   }),
   R.mapObjIndexed,

@@ -14,6 +14,7 @@ export default {
       'fontWeight',
       'widthScales',
       'borderRadius',
+      'borderWidths',
     ]),
   },
 };
@@ -50,8 +51,18 @@ export default {
 
       <h3 class="f6 ttu tracked">Border Radius Position</h3>
       <p>Allows you to control the border radius position when paired with one of the a border scale classed.</p>
-      <box-scale-grid class="mb6"
+      <box-scale-grid class="mb5"
         :scale="borderRadius.positional" />
+
+      <h3 class="f6 ttu tracked">Border Width Scale</h3>
+      <box-scale-grid class="mb5"
+        :scale="borderWidths.scale"
+        show-value />
+
+      <h3 class="f6 ttu tracked">Border Width Resets</h3>
+      <p>Allows you to set the border width, of a specific direction, to <code>0</code>.</p>
+      <box-scale-grid class="mb6"
+        :scale="borderWidths.resets" />
     </div>
   </div>
 </template>
