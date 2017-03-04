@@ -16,6 +16,13 @@
   background-position: 0 3px;
 }
 
+.bg-grid {
+  background-image:
+    linear-gradient(transparent 15px, #00a699 16px),
+    linear-gradient(90deg, transparent 15px, #00a699 16px);
+  background-size: 16px 16px;
+}
+
 .flex-grow {
   flex: 1 0 8rem;
 }
