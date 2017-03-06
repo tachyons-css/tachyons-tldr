@@ -1,6 +1,6 @@
 # tachyons-tldr
 
-> decrypt tachyon CSS classes
+> quick lookup for tachyon classes, scales and colour palette.
 
 ## Build Setup
 

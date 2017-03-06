@@ -1,7 +1,7 @@
 {
   "name": "tachyons-decrypt",
   "version": "1.0.0",
-  "description": "decrypt tachyon CSS classes",
+  "description": "quick lookup for tachyon classes, scales and colour palette",
   "author": "Varun Vachhar <varunvachhar@gmail.com>",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "animejs": "https://github.com/juliangarnier/anime.git",
+    "animejs": "^2.0.1",
     "hello-color": "^1.0.1",
     "lodash.debounce": "^4.0.8",
     "postcss": "^5.2.11",

@@ -1,5 +1,4 @@
-import R, { __ } from 'ramda';
-import { propNamesList, cssObj } from '../api';
+import R from 'ramda';
 
 /**
  * Key name manipulators
@@ -52,7 +51,7 @@ export const allSelectorsToClassNames = renameKeysBy(selectorToClassName);
 export const isMediaRule = R.test(/^@media.+/);
 export const testFirst = regex => R.compose(R.test(regex), R.head);
 export const classNameIsPositional = testFirst(/(top|left|right|bottom)/);
-const mediaQueryRegex = /(.+)-(ns|m|l)$/;
+export const mediaQueryRegex = /(.+)-(ns|m|l)$/;
 
 // Getters
 export const root = R.prop(':root');
@@ -71,36 +70,3 @@ export const nonMediaValuesBy = R.curry((getProp, root) => R.compose(
   R.map(getProp),
   filterWithKeys(R.complement(isMediaRule)),
 )(root));
-
-export const findByPartialMatch = query => R.compose(
-  R.find(
-    R.pipe(R.toLower, R.invoker(1, 'includes')(query)),
-  ),
-  R.values,
-)(propNamesList);
-
-export const findGroup = R.converge(R.or, [
-  R.compose(
-    R.prop(__, propNamesList),
-    R.toLower,
-  ),
-  findByPartialMatch,
-]);
-
-const groupByClassName = R.groupBy(
-  R.ifElse(R.test(mediaQueryRegex),
-    R.pipe(R.match(mediaQueryRegex), R.nth(1)),
-    R.identity,
-  ),
-);
-
-export const groupClasses = R.compose(
-  R.values,
-  R.mapObjIndexed((mqNames, className) => ({
-    name: className,
-    value: cssObj[className],
-    mqNames,
-  })),
-  R.map(R.tail),
-  groupByClassName,
-);
