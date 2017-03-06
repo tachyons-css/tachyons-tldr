@@ -17,9 +17,11 @@ export const findGroup = R.converge(R.or, [
   findByPartialMatch,
 ]);
 
+const parseBaseSelector = R.compose(R.nth(1), R.match(utils.mediaQueryRegex));
+
 const groupByClassName = R.groupBy(
   R.ifElse(R.test(utils.mediaQueryRegex),
-    R.pipe(R.match(utils.mediaQueryRegex), R.nth(1)),
+    parseBaseSelector,
     R.identity,
   ),
 );
