@@ -15,6 +15,12 @@ export default {
     SidebarLink,
     Sidebar,
   },
+  data() {
+    return {
+      categories: ['Spacing', 'Typography', 'Width', 'Height', 'Border',
+        'Opacity', 'Shadow'],
+    };
+  },
   computed: {
     ...mapGetters(['searchResults']),
     ...mapGetters('tachyons', [
@@ -34,32 +40,9 @@ export default {
     <div class="mw8 center flex">
       <sidebar class="dn db-l mr5">
         <sidebar-link
-          to="#spacing">
-          Spacing
-        </sidebar-link>
-        <sidebar-link
-          to="#typography">
-          Typography
-        </sidebar-link>
-        <sidebar-link
-          to="#width">
-          Width
-        </sidebar-link>
-        <sidebar-link
-          to="#height">
-          Height
-        </sidebar-link>
-        <sidebar-link class="washed-pink"
-          to="#border">
-          Border
-        </sidebar-link>
-        <sidebar-link
-          to="#opacity">
-          Opacity
-        </sidebar-link>
-        <sidebar-link
-          to="#shadow">
-          Shadow
+          v-for="category in categories"
+          :to="'#' + category">
+          {{ category }}
         </sidebar-link>
       </sidebar>
       <div class="w-100 w-90-l">
