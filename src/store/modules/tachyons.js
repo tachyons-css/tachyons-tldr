@@ -18,8 +18,8 @@ const bwClassNames = custom => `h3 br b--moon-gray ${custom}`;
  * ✅ type-scale
  * ✅ font-weight
  * ✅ border-radius
- * ☐ border-widths
- * ☐ heights
+ * ✅ border-widths
+ * ✅ heights
  * ✅ widths
  * ☐ max-widths
  */
@@ -51,17 +51,6 @@ const getters = {
   spacingScale(state) {
     return state.scales.spacing;
   },
-
-  widthScales: R.compose(
-    R.map(R.fromPairs),
-    R.groupBy(R.cond([
-      [utils.testFirst(/third/g), R.always('third')],
-      [utils.testFirst(/-/g), R.always('percent')],
-      [R.T, R.always('step')],
-    ])),
-    R.toPairs,
-    R.path(['scales', 'widths']),
-  ),
 
   typeScale: R.compose(
     utils.renameKeysBy(R.compose(
@@ -113,6 +102,30 @@ const getters = {
     R.toPairs,
     R.map(R.objOf('value')),
     R.path(['scales', 'borderWidths']),
+  ),
+
+  widths: R.compose(
+    R.map(R.fromPairs),
+    R.groupBy(R.cond([
+      [utils.testFirst(/third/), R.always('third')],
+      [utils.testFirst(/^w-\d+/), R.always('percent')],
+      [utils.testFirst(/^w\d+/g), R.always('scale')],
+    ])),
+    R.toPairs,
+    R.path(['scales', 'widths']),
+  ),
+
+  heights: R.compose(
+    R.map(R.fromPairs),
+    R.groupBy(R.cond([
+      [utils.testFirst(/^h\d+/), R.always('scale')],
+      [utils.testFirst(/^h-\d+/), R.always('percent')],
+      [utils.testFirst(/^vh-\d+/), R.always('vh')],
+    ])),
+    R.map(R.set(classNamesLens, 'w3 bg-light-gray bb b--persian-green bw1')),
+    R.toPairs,
+    R.map(R.objOf('value')),
+    R.path(['scales', 'heights']),
   ),
 };
 
