@@ -22,6 +22,8 @@ const bwClassNames = custom => `h3 br b--moon-gray ${custom}`;
  * ✅ heights
  * ✅ widths
  * ☐ max-widths
+ * ☐ opacity
+ * ☐ shadow
  */
 
 

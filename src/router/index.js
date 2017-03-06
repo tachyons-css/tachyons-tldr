@@ -9,7 +9,13 @@ Vue.use(Router);
 
 export default new Router({
   mode: 'history',
-  scrollBehavior: () => ({ y: 0 }),
+  scrollBehavior(to) {
+    if (to.hash) {
+      return { selector: to.hash };
+    }
+
+    return { y: 0 };
+  },
   routes: [
     { path: '/palette', component: PaletteView, meta: { index: 2 } },
     { path: '/scales', component: ScalesView, meta: { index: 1 } },

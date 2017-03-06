@@ -38,7 +38,7 @@ export default {
 </script>
 
 <template>
-  <div class="overflow-x-auto"
+  <div class="overflow-x-auto overflow-y-hidden"
     :class="{ 'debug-grid-bw': showGrid }">
     <table class="dt--fixed collapse">
       <tbody>

@@ -1,12 +1,20 @@
 <script>
 import { mapGetters } from 'vuex';
+import SidebarLink from '../components/SidebarLink';
+import Sidebar from '../components/Sidebar';
 import TypeScaleGrid from '../components/TypeScaleGrid';
 import WidthScaleGrid from '../components/WidthScaleGrid';
 import BoxScaleGrid from '../components/BoxScaleGrid';
 
 export default {
   name: 'app',
-  components: { TypeScaleGrid, WidthScaleGrid, BoxScaleGrid },
+  components: {
+    TypeScaleGrid,
+    WidthScaleGrid,
+    BoxScaleGrid,
+    SidebarLink,
+    Sidebar,
+  },
   computed: {
     ...mapGetters(['searchResults']),
     ...mapGetters('tachyons', [
@@ -24,6 +32,36 @@ export default {
 <template>
   <div>
     <div class="mw8 center flex">
+      <sidebar class="dn db-l mr5">
+        <sidebar-link
+          to="#spacing">
+          Spacing
+        </sidebar-link>
+        <sidebar-link
+          to="#typography">
+          Typography
+        </sidebar-link>
+        <sidebar-link
+          to="#width">
+          Width
+        </sidebar-link>
+        <sidebar-link
+          to="#height">
+          Height
+        </sidebar-link>
+        <sidebar-link class="washed-pink"
+          to="#border">
+          Border
+        </sidebar-link>
+        <sidebar-link
+          to="#opacity">
+          Opacity
+        </sidebar-link>
+        <sidebar-link
+          to="#shadow">
+          Shadow
+        </sidebar-link>
+      </sidebar>
       <div class="w-100 w-90-l">
         <!-- Typography -->
         <h3 id="typography" class="f5">Type Scale</h3>
@@ -81,36 +119,7 @@ export default {
         <p>Allows you to set the border width, of a specific direction, to <code>0</code>.</p>
         <box-scale-grid class="mb6"
           :scale="borderWidths.resets" />
-    </div>
-    <div class="dn db-l">
-      <ul class="list tr pl5"
-        style="position: sticky; top: -1px;">
-        <li><a class="pv2 pl2 db gray pointer ttu tracked f6 link no-underline"
-          href="#typography">
-          Typography
-        </a></li>
-        <li><a class="pv2 pl2 db gray pointer ttu tracked f6 link no-underline"
-          href="#width">
-          Width
-        </a></li>
-        <li><a class="pv2 pl2 db gray pointer ttu tracked f6 link no-underline"
-          href="#height">
-          Height
-        </a></li>
-        <li><a class="pv2 pl2 db gray pointer ttu tracked f6 link no-underline washed-pink bl b--washed-pink bw1"
-          href="#border">
-          Border
-        </a></li>
-        <li><a class="pv2 pl2 db gray pointer ttu tracked f6 link no-underline"
-          href="#opacity">
-          Opacity
-        </a></li>
-        <li><a class="pv2 pl2 db gray pointer ttu tracked f6 link no-underline"
-          href="#shadow">
-          Shadow
-        </a></li>
-      </ul>
-    </div>
+      </div>
     </div>
   </div>
 </template>

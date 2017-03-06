@@ -4,9 +4,10 @@
   transform: perspective(1px) translateY(-50%);
 }
 
-.preserve-3d {
-  transform-style: preserve-3d;
-}
+.preserve-3d { transform-style: preserve-3d; }
+.flex-grow { flex: 1 0 8rem; }
+.origin-0-0 { transform-origin: 0 0; }
+.sticky { position: sticky; }
 
 .debug-grid-bw {
   background-image:
@@ -21,10 +22,6 @@
     linear-gradient(transparent 15px, #00a699 16px),
     linear-gradient(90deg, transparent 15px, #00a699 16px);
   background-size: 16px 16px;
-}
-
-.flex-grow {
-  flex: 1 0 8rem;
 }
 
 .animated-shadow {
@@ -52,8 +49,6 @@
   background-color: #ffffff;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23dddddd' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
 }
-
-.origin-0-0 { transform-origin: 0 0; }
 
 
 /* Custom Colours */
