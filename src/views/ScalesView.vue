@@ -52,7 +52,6 @@ export default {
         <section-menu-item
           v-for="(category, idx) in scales.categories"
           :to="'#' + category"
-          :isActive="idx === scales.activeCategoryIndex"
           @click.native="goTo(category, idx)">
           {{ category }}
         </section-menu-item>
