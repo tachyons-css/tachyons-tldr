@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import tachyons from './modules/tachyons';
 import classNames from './modules/class-names';
-import terminal from './modules/terminal';
+import ui from './modules/ui';
 
 Vue.use(Vuex);
 
@@ -12,7 +12,7 @@ const store = new Vuex.Store({
   modules: {
     tachyons,
     classNames,
-    terminal,
+    ui,
   },
   strict: debug,
 });

@@ -8,20 +8,13 @@ export default {
   name: 'class-names-view',
   components: { Terminal, ClassNamesList, FieldLabel },
   computed: {
-    ...mapState([
-      'classNames',
-      'terminal',
-    ]),
-    ...mapGetters([
-      'searchResults',
-    ]),
+    ...mapState('ui', ['terminal']),
+    ...mapState(['classNames']),
+    ...mapGetters(['searchResults']),
   },
   methods: {
-    ...mapMutations([
-      'searchForClassByProp',
-      'activateTerminal',
-      'deactivateTerminal',
-    ]),
+    ...mapMutations('ui', ['activateTerminal', 'deactivateTerminal']),
+    ...mapMutations(['searchForClassByProp']),
   },
 };
 </script>

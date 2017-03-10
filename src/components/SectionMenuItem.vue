@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'sidebar-link',
+  name: 'section-menu-item',
   props: {
     to: String,
     isActive: {
@@ -13,7 +13,7 @@ export default {
 
 <template>
   <li>
-    <router-link class="pv2 pr2 db gray pointer ttu tracked f6 link no-underline"
+    <router-link class="pv2 pr2 db gray pointer ttu tracked f6 no-underline outline-0 an-c ease-in-out-cubic"
       :class="{ 'washed-pink': isActive }"
       :to="to">
       <slot />

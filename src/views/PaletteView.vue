@@ -4,7 +4,7 @@ import ColourChip from '../components/ColourChip';
 import ColourBlock from '../components/ColourBlock';
 
 export default {
-  name: 'app',
+  name: 'palette-view',
   components: { ColourChip, ColourBlock },
   computed: {
     ...mapState('tachyons', ['colours']),

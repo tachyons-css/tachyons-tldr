@@ -1,27 +1,25 @@
 <script>
-import { mapGetters } from 'vuex';
-import SidebarLink from '../components/SidebarLink';
-import Sidebar from '../components/Sidebar';
+import { polyfill } from 'scroll-behaviour';
+import { mapGetters, mapState, mapMutations } from 'vuex';
+import SectionMenuItem from '../components/SectionMenuItem';
+import SectionMenu from '../components/SectionMenu';
 import TypeScaleGrid from '../components/TypeScaleGrid';
 import WidthScaleGrid from '../components/WidthScaleGrid';
 import BoxScaleGrid from '../components/BoxScaleGrid';
 
+polyfill();
+
 export default {
-  name: 'app',
+  name: 'scales-view',
   components: {
     TypeScaleGrid,
     WidthScaleGrid,
     BoxScaleGrid,
-    SidebarLink,
-    Sidebar,
-  },
-  data() {
-    return {
-      categories: ['Spacing', 'Typography', 'Width', 'Height', 'Border',
-        'Opacity', 'Shadow'],
-    };
+    SectionMenuItem,
+    SectionMenu,
   },
   computed: {
+    ...mapState('ui', ['scales']),
     ...mapGetters(['searchResults']),
     ...mapGetters('tachyons', [
       'typeScale',
@@ -32,76 +30,99 @@ export default {
       'heights',
     ]),
   },
+  methods: {
+    ...mapMutations('ui', ['selectScaleCategory']),
+    goTo(category, idx) {
+      this.selectScaleCategory(idx);
+      if (this.$refs[category]) {
+        this.$refs[category]
+          .scrollIntoView({ block: 'top', behavior: 'smooth' });
+      }
+    },
+  },
 };
 </script>
 
 <template>
   <div>
     <div class="mw8 center flex">
-      <sidebar class="dn db-l mr5">
-        <sidebar-link
-          v-for="category in categories"
-          :to="'#' + category">
+
+      <section-menu class="dn db-l mr5"
+        :active-index="scales.activeCategoryIndex">
+        <section-menu-item
+          v-for="(category, idx) in scales.categories"
+          :to="'#' + category"
+          :isActive="idx === scales.activeCategoryIndex"
+          @click.native="goTo(category, idx)">
           {{ category }}
-        </sidebar-link>
-      </sidebar>
+        </section-menu-item>
+      </section-menu>
+
       <div class="w-100 w-90-l">
         <!-- Typography -->
-        <h3 id="typography" class="f5">Type Scale</h3>
-        <type-scale-grid class="b mb5"
-          :scale="typeScale"
-          show-grid />
+        <section ref="Typography" class="pt3">
+          <h3 class="f5 mt0">Type Scale</h3>
+          <type-scale-grid class="b mb5"
+            :scale="typeScale"
+            show-grid />
 
-        <h3 class="f5">Font Weights</h3>
-        <type-scale-grid class="f1 mb6"
-          :scale="fontWeight" />
+          <h3 class="f5">Font Weights</h3>
+          <type-scale-grid class="f1 mb6"
+            :scale="fontWeight" />
+        </section>
 
         <!-- Widths -->
-        <h3 id="width" class="f5">Width Scale</h3>
-        <width-scale-grid class="mb5"
-          :scale="widths.scale" />
+        <section ref="Width" class="pt3">
+          <h3 class="f5 mt0">Width Scale</h3>
+          <width-scale-grid class="mb5"
+            :scale="widths.scale" />
 
-        <h3 class="f5">Width – Thirds</h3>
-        <width-scale-grid class="mb5"
-          :scale="widths.third" />
+          <h3 class="f5">Width – Thirds</h3>
+          <width-scale-grid class="mb5"
+            :scale="widths.third" />
 
-        <h3 class="f5">Width – Percentage</h3>
-        <width-scale-grid class="mb6"
-          :scale="widths.percent" />
+          <h3 class="f5">Width – Percentage</h3>
+          <width-scale-grid class="mb6"
+            :scale="widths.percent" />
+        </section>
 
         <!-- Heights -->
-        <h3 id="height" class="f5">Height Scale</h3>
-        <box-scale-grid class="mb6 items-start"
-          :scale="heights.scale" />
+        <section ref="Height" class="pt3">
+          <h3 class="f5 mt0">Height Scale</h3>
+          <box-scale-grid class="mb6 items-start"
+            :scale="heights.scale" />
 
-        <h3 class="f5">Height – Parent Percentage</h3>
-        <box-scale-grid class="mb6 h5"
-          :scale="heights.percent" />
+          <h3 class="f5">Height – Parent Percentage</h3>
+          <box-scale-grid class="mb6 h5"
+            :scale="heights.percent" />
 
-        <h3 class="f5">Height – Viewport Percentage</h3>
-        <box-scale-grid class="mb6"
-          :scale="heights.vh" />
+          <h3 class="f5">Height – Viewport Percentage</h3>
+          <box-scale-grid class="mb6"
+            :scale="heights.vh" />
+        </section>
 
         <!-- Borders -->
-        <h3 id="border" class="f5">Border Radius Scale</h3>
-        <box-scale-grid class="mb5"
-          :scale="borderRadius.scale"
-          show-value />
+        <section ref="Border" class="pt3">
+          <h3 class="f5 mt0">Border Radius Scale</h3>
+          <box-scale-grid class="mb5"
+            :scale="borderRadius.scale"
+            show-value />
 
-        <h3 class="f5">Border Radius Position</h3>
-        <p>Allows you to control the border radius position when paired with one of the a border scale classed.</p>
-        <box-scale-grid class="mb5"
-          :scale="borderRadius.positional" />
+          <h3 class="f5">Border Radius Position</h3>
+          <p>Allows you to control the border radius position when paired with one of the a border scale classed.</p>
+          <box-scale-grid class="mb5"
+            :scale="borderRadius.positional" />
 
-        <h3 class="f5">Border Width Scale</h3>
-        <box-scale-grid class="mb5"
-          :scale="borderWidths.scale"
-          show-value />
+          <h3 class="f5">Border Width Scale</h3>
+          <box-scale-grid class="mb5"
+            :scale="borderWidths.scale"
+            show-value />
 
-        <h3 class="f5">Border Width Resets</h3>
-        <p>Allows you to set the border width, of a specific direction, to <code>0</code>.</p>
-        <box-scale-grid class="mb6"
-          :scale="borderWidths.resets" />
+          <h3 class="f5">Border Width Resets</h3>
+          <p>Allows you to set the border width, of a specific direction, to <code>0</code>.</p>
+          <box-scale-grid class="mb6"
+            :scale="borderWidths.resets" />
+        </section>
       </div>
     </div>
   </div>
