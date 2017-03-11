@@ -8,7 +8,7 @@ const uiState = {
   },
   scales: {
     categories: ['Spacing', 'Typography', 'Width', 'Height', 'Border',
-      'Opacity', 'Shadow'],
+      'Shadow', 'Opacity'],
     activeCategoryIndex: 0,
   },
 };

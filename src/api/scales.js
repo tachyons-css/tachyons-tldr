@@ -51,6 +51,10 @@ const scaleParsers = {
     R.omit(['.mw-none']),
     nonMediaValuesBy(R.prop('maxWidth')),
   ),
+
+  opacity: nonMediaValuesBy(R.prop('opacity')),
+
+  'box-shadow': nonMediaValuesBy(R.prop('boxShadow')),
 };
 
 export const scales = R.compose(
@@ -61,6 +65,7 @@ export const scales = R.compose(
     'border-radius': 'borderRadius',
     'border-widths': 'borderWidths',
     'max-widths': 'maxWidth',
+    'box-shadow': 'shadow',
   }),
   R.mapObjIndexed,
 )(valuesFromModule, scaleParsers);

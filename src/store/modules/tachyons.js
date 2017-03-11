@@ -14,7 +14,7 @@ const brClassNames = custom => `h3 bg-light-gray ba b--moon-gray ${custom}`;
 const bwClassNames = custom => `h3 br b--moon-gray ${custom}`;
 
 /**
- * ☐ spacing
+ * ✅  spacing
  * ✅ type-scale
  * ✅ font-weight
  * ✅ border-radius
@@ -129,6 +129,20 @@ const getters = {
     R.toPairs,
     R.map(R.objOf('value')),
     R.path(['scales', 'heights']),
+  ),
+
+  opacityScale: R.compose(
+    R.fromPairs,
+    R.map(R.set(classNamesLens, 'w3 h3 bg-checkered ba')),
+    R.toPairs,
+    R.path(['scales', 'opacity']),
+  ),
+
+  shadowScale: R.compose(
+    R.fromPairs,
+    R.map(R.set(classNamesLens, 'w4 h4')),
+    R.toPairs,
+    R.path(['scales', 'shadow']),
   ),
 };
 
