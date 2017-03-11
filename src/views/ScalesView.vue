@@ -7,6 +7,7 @@ import TypeScaleGrid from '../components/TypeScaleGrid';
 import WidthScaleGrid from '../components/WidthScaleGrid';
 import BoxScaleGrid from '../components/BoxScaleGrid';
 import SpacingScale from '../components/SpacingScale';
+import OpacityScale from '../components/OpacityScale';
 
 polyfill();
 
@@ -19,6 +20,7 @@ export default {
     SectionMenuItem,
     SectionMenu,
     SpacingScale,
+    OpacityScale,
   },
   computed: {
     ...mapState('ui', ['scales']),
@@ -146,7 +148,7 @@ export default {
         <!-- Opacity -->
         <section ref="Opacity" class="pt3 mb6">
           <h3 class="f5 mt0">Opacity Scale</h3>
-          <box-scale-grid
+          <opacity-scale
             :scale="opacityScale" />
         </section>
       </div>

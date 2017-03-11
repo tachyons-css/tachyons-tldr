@@ -6,10 +6,6 @@ export default {
   name: 'spacing-scale',
   props: {
     scale: Object,
-    showGrid: {
-      type: Boolean,
-      default: false,
-    },
   },
   computed: {
     steps() {

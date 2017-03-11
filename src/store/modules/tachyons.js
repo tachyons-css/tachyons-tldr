@@ -132,9 +132,7 @@ const getters = {
   ),
 
   opacityScale: R.compose(
-    R.fromPairs,
-    R.map(R.set(classNamesLens, 'w3 h3 bg-checkered ba')),
-    R.toPairs,
+    // Sort
     R.path(['scales', 'opacity']),
   ),
 
