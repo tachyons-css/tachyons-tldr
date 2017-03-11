@@ -1,5 +1,3 @@
-import R from 'ramda';
-
 /**
  * initial state
  */

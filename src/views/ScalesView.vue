@@ -6,6 +6,7 @@ import SectionMenu from '../components/SectionMenu';
 import TypeScaleGrid from '../components/TypeScaleGrid';
 import WidthScaleGrid from '../components/WidthScaleGrid';
 import BoxScaleGrid from '../components/BoxScaleGrid';
+import SpacingScale from '../components/SpacingScale';
 
 polyfill();
 
@@ -17,6 +18,7 @@ export default {
     BoxScaleGrid,
     SectionMenuItem,
     SectionMenu,
+    SpacingScale,
   },
   computed: {
     ...mapState('ui', ['scales']),
@@ -28,6 +30,7 @@ export default {
       'borderRadius',
       'borderWidths',
       'heights',
+      'spacingScale',
     ]),
   },
   methods: {
@@ -58,6 +61,14 @@ export default {
       </section-menu>
 
       <div class="w-100 w-90-l">
+        <!-- Spacing -->
+        <section ref="Spacing" class="pt3">
+          <h3 class="f5 mt0">Spacing Scale</h3>
+          <p>An eight step powers of two scale ranging from 0 to 16rem.</p>
+          <spacing-scale class="b mb5 mt4"
+            :scale="spacingScale" />
+        </section>
+
         <!-- Typography -->
         <section ref="Typography" class="pt3">
           <h3 class="f5 mt0">Type Scale</h3>

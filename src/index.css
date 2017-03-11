@@ -9,7 +9,7 @@
 .origin-0-0 { transform-origin: 0 0; }
 .sticky { position: sticky; }
 
-.debug-grid-bw {
+.debug-grid-green {
   background-image:
     linear-gradient(transparent 7px, #00a699 8px),
     linear-gradient(90deg, transparent 7px, #00a699 8px);

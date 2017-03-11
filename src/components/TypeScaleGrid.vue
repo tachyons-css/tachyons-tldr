@@ -39,7 +39,7 @@ export default {
 
 <template>
   <div class="overflow-x-auto overflow-y-hidden"
-    :class="{ 'debug-grid-bw': showGrid }">
+    :class="{ 'debug-grid-green': showGrid }">
     <table class="dt--fixed collapse">
       <tbody>
         <transition-group

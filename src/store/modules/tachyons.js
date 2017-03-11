@@ -50,9 +50,10 @@ const getters = {
     R.path(['colours', 'solid']),
   ),
 
-  spacingScale(state) {
-    return state.scales.spacing;
-  },
+  spacingScale: R.compose(
+    R.map(R.replace(/\./, '0.')),
+    R.path(['scales', 'spacing']),
+  ),
 
   typeScale: R.compose(
     utils.renameKeysBy(R.compose(
