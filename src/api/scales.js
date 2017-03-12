@@ -64,7 +64,7 @@ export const scales = R.compose(
     'font-weight': 'fontWeight',
     'border-radius': 'borderRadius',
     'border-widths': 'borderWidths',
-    'max-widths': 'maxWidth',
+    'max-widths': 'maxWidths',
     'box-shadow': 'shadow',
   }),
   R.mapObjIndexed,

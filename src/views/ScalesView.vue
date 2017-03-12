@@ -35,6 +35,7 @@ export default {
       'spacingScale',
       'opacityScale',
       'shadowScale',
+      'maxWidths',
     ]),
   },
   methods: {
@@ -96,8 +97,12 @@ export default {
             :scale="widths.third" />
 
           <h3 class="f5">Width – Percentage</h3>
-          <width-scale-grid
+          <width-scale-grid class="mb5"
             :scale="widths.percent" />
+
+          <h3 class="f5">Max Widths</h3>
+          <width-scale-grid
+            :scale="maxWidths" />
         </section>
 
         <!-- Heights -->

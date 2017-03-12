@@ -22,8 +22,8 @@ const bwClassNames = custom => `h3 br b--moon-gray ${custom}`;
  * ✅ heights
  * ✅ widths
  * ☐ max-widths
- * ☐ opacity
- * ☐ shadow
+ * ✅ opacity
+ * ✅ shadow
  */
 
 
@@ -132,7 +132,10 @@ const getters = {
   ),
 
   opacityScale: R.compose(
-    // Sort
+    R.fromPairs,
+    R.sort(([, a], [, b]) => a - b),
+    R.toPairs,
+    R.map(Number),
     R.path(['scales', 'opacity']),
   ),
 
@@ -141,6 +144,17 @@ const getters = {
     R.map(R.set(classNamesLens, 'w4 h4')),
     R.toPairs,
     R.path(['scales', 'shadow']),
+  ),
+
+  maxWidths: R.compose(
+    // R.map(R.fromPairs),
+    // R.groupBy(R.cond([
+    //   [utils.testFirst(/third/), R.always('third')],
+    //   [utils.testFirst(/^w-\d+/), R.always('percent')],
+    //   [utils.testFirst(/^w\d+/g), R.always('scale')],
+    // ])),
+    // R.toPairs,
+    R.path(['scales', 'maxWidths']),
   ),
 };
 
