@@ -146,16 +146,7 @@ const getters = {
     R.path(['scales', 'shadow']),
   ),
 
-  maxWidths: R.compose(
-    // R.map(R.fromPairs),
-    // R.groupBy(R.cond([
-    //   [utils.testFirst(/third/), R.always('third')],
-    //   [utils.testFirst(/^w-\d+/), R.always('percent')],
-    //   [utils.testFirst(/^w\d+/g), R.always('scale')],
-    // ])),
-    // R.toPairs,
-    R.path(['scales', 'maxWidths']),
-  ),
+  maxWidths: R.path(['scales', 'maxWidths']),
 };
 
 
