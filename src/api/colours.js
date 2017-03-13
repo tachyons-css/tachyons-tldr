@@ -1,5 +1,6 @@
 import postcssJs from 'postcss-js';
 import postcss from 'postcss';
+import hello from 'hello-color';
 import R from 'ramda';
 import {
   root,
@@ -22,7 +23,13 @@ const groupByAlpha = R.groupBy(
   ),
 );
 
+const addNegatives = R.map(colour => ({
+  value: colour,
+  negative: hello(colour).color,
+}));
+
 export const colours = R.compose(
+  R.over(R.lensProp('solid'), addNegatives),
   R.map(R.fromPairs),
   renameKeys({
     false: 'solid',

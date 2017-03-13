@@ -1,5 +1,4 @@
 import R from 'ramda';
-import hello from 'hello-color';
 import { TACHYONS } from '../mutation-types';
 import {
   groupedClasses,
@@ -29,13 +28,7 @@ const tachyonsState = {
  * Getters
  */
 const getters = {
-  solidColours: R.compose(
-    R.map(colour => ({
-      value: colour,
-      negative: hello(colour).color,
-    })),
-    R.path(['colours', 'solid']),
-  ),
+  solidColours: R.path(['colours', 'solid']),
 
   spacingScale: R.compose(
     R.map(R.replace(/\./, '0.')),
