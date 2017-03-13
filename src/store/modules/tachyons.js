@@ -13,19 +13,6 @@ const classNamesLens = R.lensPath([1, 'classNames']);
 const brClassNames = custom => `h3 bg-light-gray ba b--moon-gray ${custom}`;
 const bwClassNames = custom => `h3 br b--moon-gray ${custom}`;
 
-/**
- * ✅  spacing
- * ✅ type-scale
- * ✅ font-weight
- * ✅ border-radius
- * ✅ border-widths
- * ✅ heights
- * ✅ widths
- * ☐ max-widths
- * ✅ opacity
- * ✅ shadow
- */
-
 
 /**
  * initial state
