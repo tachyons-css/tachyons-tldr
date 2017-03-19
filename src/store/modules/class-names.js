@@ -37,6 +37,14 @@ export const groupClasses = R.compose(
   groupByClassName,
 );
 
+function findByProperty(query, classGroups) {
+  const name = R.unless(
+    R.either(R.isNil, R.isEmpty),
+    findGroup,
+  )(query);
+
+  return classGroups[name] ? groupClasses(classGroups[name]) : [];
+}
 
 /**
  * initial state
@@ -51,13 +59,12 @@ const classNamesState = {
  * Getters
  */
 const getters = {
-  searchResults: ({ query }, _, { tachyons: { classGroups } }) => {
-    const name = R.unless(
-      R.either(R.isNil, R.isEmpty),
-      findGroup,
-    )(query);
+  searchResults: ({ query }, _, { tachyons: { classGroups }, ui }) => {
+    if (ui.terminal.byClassName) {
+      return [];
+    }
 
-    return classGroups[name] ? groupClasses(classGroups[name]) : [];
+    return findByProperty(query, classGroups);
   },
   query: ({ query }) => query,
 };

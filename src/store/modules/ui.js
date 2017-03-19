@@ -43,6 +43,10 @@ const mutations = {
   deactivateTerminal(state) {
     state.terminal.isActive = false;
   },
+
+  toggleSearchByClassName(state) {
+    state.terminal.byClassName = !state.terminal.byClassName;
+  },
 };
 
 

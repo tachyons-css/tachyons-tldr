@@ -13,7 +13,11 @@ export default {
     ...mapGetters(['searchResults']),
   },
   methods: {
-    ...mapMutations('ui', ['activateTerminal', 'deactivateTerminal']),
+    ...mapMutations('ui', [
+      'activateTerminal',
+      'deactivateTerminal',
+      'toggleSearchByClassName',
+    ]),
     ...mapMutations(['searchForClassByProp']),
   },
 };
@@ -32,7 +36,10 @@ export default {
       <label is="field-label"
         slot="flag"
         class="ml3 pl3 pv3 pointer b bl b--black-20">
-        <input type="checkbox"> --by-class-name
+        <input type="checkbox"
+          :checked="terminal.byClassName"
+          @change="toggleSearchByClassName">
+          --by-class-name {{ terminal.byClassName }}
       </label>
 
     </terminal>

@@ -9,16 +9,29 @@ export default {
     classNames: Array,
   },
   methods: {
+    beforeEnter(el) {
+      el.style.opacity = 0;
+    },
     enter(el, done) {
       anime({
         targets: el,
-        delay: Math.min(1000, el.dataset.index * 50),
+        delay: Math.min(1000, el.dataset.index * 80),
         opacity: [0, 1],
-        translateZ: 0,
         translateY: ['-50%', 0],
-        easing: 'easeOutExpo',
+        easing: 'easeOutCubic',
         duration: 600,
-        onComplete: done,
+        complete: done,
+      });
+    },
+    leave(el, done) {
+      anime({
+        targets: el,
+        delay: Math.min(1000, el.dataset.index * 80),
+        opacity: [1, 0],
+        translateY: [0, '-50%'],
+        easing: 'easeOutCubic',
+        duration: 600,
+        complete: done,
       });
     },
   },
@@ -27,19 +40,12 @@ export default {
 
 <template>
   <div class="code">
-
-    <!-- <div class="flex items-center mb3 bt-0 bl-0 br-0 bb b--dark-gray bw1 pb3">
-      <h3 class="f5 w-30 ma0">
-        selector
-      </h3>
-      <h3 class="f5 flex-auto ma0">ruleset</h3>
-      <h3 class="f5 w-20 ma0">breakpoints</h3>
-    </div> -->
-
-    <transition-group name="staggered-fade"
+    <transition-group
       tag="div"
       :css="false"
-      @enter="enter">
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @leave="leave">
       <class-names-item
         v-for="(className, index) in classNames"
         :className="className"

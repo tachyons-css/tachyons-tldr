@@ -35,7 +35,7 @@ export default {
         {{ command }}
       </label>
 
-      <span class="b pv3 pr3 br b--black-20">
+      <span class="b pv3 pr3">
         $ <span class="persian-green">{{ command }}</span>
       </span>
 
