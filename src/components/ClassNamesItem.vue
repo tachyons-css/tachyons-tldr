@@ -14,11 +14,11 @@ export default {
   <div class="flex items-center pa3">
     <div class="w-40">
       {{ className.name }}
-      <button class="bn bg-transparent pointer"
+      <!-- <button class="bn bg-transparent pointer"
         type="button"
         v-if="className.mqNames.length > 0">
         [+]
-      </button>
+      </button> -->
       <!-- <ul class="list">
         <li v-for="mqClassName in className.mqNames">
           {{ mqClassName }}

@@ -5,6 +5,7 @@ import {
   colours,
   scales,
   version,
+  classNames,
 } from '../../api';
 import * as utils from '../../utils';
 
@@ -21,6 +22,7 @@ const tachyonsState = {
   classGroups: {},
   colours: {},
   scales: {},
+  classNames: {},
 };
 
 
@@ -139,6 +141,7 @@ const actions = {
       classGroups: groupedClasses,
       colours,
       scales,
+      classNames,
     });
   },
 };
@@ -152,6 +155,7 @@ const mutations = {
     state.classGroups = payload.classGroups;
     state.colours = payload.colours;
     state.scales = payload.scales;
+    state.classNames = payload.classNames;
   },
 };
 

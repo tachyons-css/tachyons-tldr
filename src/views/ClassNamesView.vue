@@ -39,7 +39,7 @@ export default {
         <input type="checkbox"
           :checked="terminal.byClassName"
           @change="toggleSearchByClassName">
-          --by-class-name {{ terminal.byClassName }}
+          --by-class-name
       </label>
 
     </terminal>

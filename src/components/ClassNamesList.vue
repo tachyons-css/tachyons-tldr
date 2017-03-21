@@ -23,17 +23,6 @@ export default {
         complete: done,
       });
     },
-    leave(el, done) {
-      anime({
-        targets: el,
-        delay: Math.min(1000, el.dataset.index * 80),
-        opacity: [1, 0],
-        translateY: [0, '-50%'],
-        easing: 'easeOutCubic',
-        duration: 600,
-        complete: done,
-      });
-    },
   },
 };
 </script>
@@ -44,8 +33,7 @@ export default {
       tag="div"
       :css="false"
       @before-enter="beforeEnter"
-      @enter="enter"
-      @leave="leave">
+      @enter="enter">
       <class-names-item
         v-for="(className, index) in classNames"
         :className="className"

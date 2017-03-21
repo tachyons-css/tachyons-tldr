@@ -27,6 +27,11 @@ function splitRules(props, className) {
   return R.map(R.pair(className), props);
 }
 
+export const classNames = R.compose(
+  R.identity,
+)(cssObj);
+
+
 export const groupedClasses = R.compose(
   R.map(R.map(R.head)),
   R.groupBy(R.tail),
