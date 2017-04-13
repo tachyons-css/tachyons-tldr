@@ -1,10 +1,11 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
+import { polyfill } from 'scroll-behaviour';
 import { sync } from 'vuex-router-sync';
 import router from './router';
 import App from './App';
 import store from './store';
+
+polyfill();
 
 sync(store, router);
 
@@ -19,5 +20,3 @@ new Vue({
   store,
   ...App,
 });
-
-// app.$mount('#app');

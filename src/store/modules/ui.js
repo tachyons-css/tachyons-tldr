@@ -7,7 +7,7 @@ const uiState = {
     byClassName: false,
   },
   scales: {
-    categories: ['Spacing', 'Typography', 'Width', 'Height', 'Border',
+    categories: ['Spacing', 'Typography', 'Widths', 'Heights', 'Border',
       'Shadow', 'Opacity'],
     activeCategoryIndex: 0,
   },
