@@ -11,23 +11,8 @@ import BorderSection from './BorderSection';
 import ShadowSection from './ShadowSection';
 import OpacitySection from './OpacitySection';
 
-// var last_known_scroll_position = 0;
-// var ticking = false;
-//
-// function doSomething(scroll_pos) {
-//   // do something with the scroll position
-// }
-//
-// window.addEventListener('scroll', function(e) {
-//   last_known_scroll_position = window.scrollY;
-//   if (!ticking) {
-//     window.requestAnimationFrame(function() {
-//       doSomething(last_known_scroll_position);
-//       ticking = false;
-//     });
-//   }
-//   ticking = true;
-// });
+let lastKnownScrollPosition = 0;
+let ticking = false;
 
 export default {
   name: 'scales-view',
@@ -47,14 +32,18 @@ export default {
       R.map(n => n.$el.getBoundingClientRect().top),
       R.values,
     )(this.$refs);
-    console.log(locations);
-
     const threshold = window.innerHeight * 0.25;
 
     window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const idx = R.findIndex(location => Math.abs(location - scrollY) < threshold, locations);
-      if (idx > -1) this.selectScaleCategory(idx);
+      lastKnownScrollPosition = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          this.updateScrollSpy(locations, threshold, lastKnownScrollPosition);
+          ticking = false;
+        });
+      }
+
+      ticking = true;
     });
   },
   destroyed() {
@@ -75,8 +64,11 @@ export default {
   },
   methods: {
     ...mapMutations('ui', ['selectScaleCategory']),
-    goTo(category, idx) {
-      this.selectScaleCategory(idx);
+    updateScrollSpy(locations, threshold, scrollY) {
+      const idx = R.findIndex(location => Math.abs(location - scrollY) < threshold, locations);
+      if (idx > -1) this.selectScaleCategory(idx);
+    },
+    goTo(category) {
       if (this.$refs[category]) {
         this.$refs[category].$el
           .scrollIntoView({ block: 'top', behavior: 'smooth' });
@@ -93,9 +85,9 @@ export default {
       <section-menu class="dn db-l mr5"
         :active-index="scales.activeCategoryIndex">
         <section-menu-item
-          v-for="(category, idx) in scales.categories"
+          v-for="category in scales.categories"
           :to="'#' + category"
-          @click.native="goTo(category, idx)">
+          @click.native="goTo(category)">
           {{ category }}
         </section-menu-item>
       </section-menu>
