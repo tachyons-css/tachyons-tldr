@@ -1,5 +1,5 @@
 <script>
-import TypeScaleGrid from '../../components/TypeScaleGrid';
+import TypeScaleGrid from './type-scale-grid.component';
 
 export default {
   name: 'typography-section',

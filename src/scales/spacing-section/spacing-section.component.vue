@@ -1,5 +1,5 @@
 <script>
-import SpacingScale from '../../components/SpacingScale';
+import SpacingScale from './spacing-scale.component';
 
 export default {
   name: 'spacing-section',

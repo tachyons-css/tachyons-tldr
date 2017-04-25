@@ -1,5 +1,5 @@
 <script>
-import OpacityScale from '../../components/OpacityScale';
+import OpacityScale from './opacity-scale.component';
 
 export default {
   name: 'opacity-section',

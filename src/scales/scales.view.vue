@@ -1,15 +1,14 @@
 <script>
 import R from 'ramda';
 import { mapGetters, mapState, mapMutations } from 'vuex';
-import SectionMenuItem from '../../components/SectionMenuItem';
-import SectionMenu from '../../components/SectionMenu';
-import SpacingSection from './SpacingSection';
-import TypographySection from './TypographySection';
-import WidthsSection from './WidthsSection';
-import HeightsSection from './HeightsSection';
-import BorderSection from './BorderSection';
-import ShadowSection from './ShadowSection';
-import OpacitySection from './OpacitySection';
+import { SectionMenuItem, SectionMenu } from 'components';
+import BorderSection from './border-section.component';
+import SpacingSection from './spacing-section';
+import TypographySection from './typography-section';
+import WidthsSection from './widths-section';
+import HeightsSection from './heights-section.component';
+import ShadowSection from './shadow-section.component';
+import OpacitySection from './opacity-section';
 
 let lastKnownScrollPosition = 0;
 let ticking = false;
@@ -51,7 +50,6 @@ export default {
   },
   computed: {
     ...mapState('ui', ['scales']),
-    ...mapGetters(['searchResults']),
     ...mapGetters('tachyons', [
       'typeScale', 'fontWeight',
       'widths', 'maxWidths',

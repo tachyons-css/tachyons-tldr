@@ -1,5 +1,5 @@
 <script>
-import WidthScaleGrid from '../../components/WidthScaleGrid';
+import WidthScaleGrid from './width-scale-grid.component';
 
 export default {
   name: 'widths-section',

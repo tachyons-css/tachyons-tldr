@@ -1,5 +1,5 @@
 <script>
-import BoxScaleGrid from '../../components/BoxScaleGrid';
+import BoxScaleGrid from './box-scale-grid.component';
 
 export default {
   name: 'shadow-section',
