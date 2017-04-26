@@ -1,6 +1,6 @@
 <script>
 import anime from 'animejs';
-import ClassNamesItem from './ClassNamesItem';
+import ClassNamesItem from './class-names-item.component';
 
 export default {
   name: 'class-names-list',

@@ -6,11 +6,6 @@ const uiState = {
     isActive: false,
     byClassName: false,
   },
-  scales: {
-    categories: ['Spacing', 'Typography', 'Widths', 'Heights', 'Border',
-      'Shadow', 'Opacity'],
-    activeCategoryIndex: 0,
-  },
 };
 
 
@@ -32,10 +27,6 @@ const actions = {
  * Mutations
  */
 const mutations = {
-  selectScaleCategory(state, payload) {
-    state.scales.activeCategoryIndex = payload;
-  },
-
   activateTerminal(state) {
     state.terminal.isActive = true;
   },

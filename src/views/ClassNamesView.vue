@@ -1,8 +1,10 @@
 <script>
 import { mapGetters, mapState, mapMutations } from 'vuex';
-import Terminal from '../components/Terminal';
-import FieldLabel from '../components/FieldLabel';
-import ClassNamesList from '../components/ClassNamesList';
+import {
+  Terminal,
+  FieldLabel,
+  ClassNamesList,
+} from 'components';
 
 export default {
   name: 'class-names-view',

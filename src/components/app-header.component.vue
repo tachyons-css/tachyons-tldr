@@ -1,7 +1,7 @@
 <script>
-import AnimatedLine from './AnimatedLine';
-import Navigation from './Navigation';
-import NavLink from './NavLink';
+import AnimatedLine from './animated-line.component';
+import Navigation from './navigation.component';
+import NavLink from './nav-link.component';
 
 export default {
   name: 'app-header',

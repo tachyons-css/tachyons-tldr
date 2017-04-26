@@ -49,11 +49,14 @@ export default {
     window.removeEventListener('scroll', () => {});
   },
   computed: {
-    ...mapState('ui', ['scales']),
+    ...mapState('scales', ['categories', 'activeCategoryIndex']),
     ...mapGetters('tachyons', [
-      'typeScale', 'fontWeight',
-      'widths', 'maxWidths',
-      'borderRadius', 'borderWidths',
+      'typeScale',
+      'fontWeight',
+      'widths',
+      'maxWidths',
+      'borderRadius',
+      'borderWidths',
       'heights',
       'spacingScale',
       'opacityScale',
@@ -61,7 +64,7 @@ export default {
     ]),
   },
   methods: {
-    ...mapMutations('ui', ['selectScaleCategory']),
+    ...mapMutations('scales', ['selectScaleCategory']),
     updateScrollSpy(locations, threshold, scrollY) {
       const idx = R.findIndex(location => Math.abs(location - scrollY) < threshold, locations);
       if (idx > -1) this.selectScaleCategory(idx);
@@ -81,9 +84,9 @@ export default {
     <div class="mw8 center flex">
 
       <section-menu class="dn db-l mr5"
-        :active-index="scales.activeCategoryIndex">
+        :active-index="activeCategoryIndex">
         <section-menu-item
-          v-for="category in scales.categories"
+          v-for="category in categories"
           :to="'#' + category"
           @click.native="goTo(category)">
           {{ category }}

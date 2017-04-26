@@ -1,6 +1,6 @@
 <script>
 import { mapState, mapActions } from 'vuex';
-import AppHeader from './components/AppHeader';
+import { AppHeader } from 'components';
 
 export default {
   name: 'app',

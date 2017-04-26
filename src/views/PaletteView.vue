@@ -1,7 +1,9 @@
 <script>
 import { mapState, mapGetters } from 'vuex';
-import ColourChip from '../components/ColourChip';
-import ColourBlock from '../components/ColourBlock';
+import {
+  ColourChip,
+  ColourBlock,
+} from 'components';
 
 export default {
   name: 'palette-view',

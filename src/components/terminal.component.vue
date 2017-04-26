@@ -1,7 +1,7 @@
 <script>
-import Terminal from '../components/Terminal';
-import FieldLabel from '../components/FieldLabel';
-import TextField from '../components/TextField';
+import Terminal from './terminal.component';
+import FieldLabel from './field-label.component';
+import TextField from './text-field.component';
 
 export default {
   name: 'terminal',

@@ -1,16 +1,16 @@
-import AnimatedLine from './AnimatedLine';
-import AppHeader from './AppHeader';
-import ClassNamesItem from './ClassNamesItem';
-import ClassNamesList from './ClassNamesList';
-import ColourBlock from './ColourBlock';
-import ColourChip from './ColourChip';
-import FieldLabel from './FieldLabel';
-import Navigation from './Navigation';
-import NavLink from './NavLink';
-import SectionMenu from './SectionMenu';
-import SectionMenuItem from './SectionMenuItem';
-import Terminal from './Terminal';
-import TextField from './TextField';
+import AnimatedLine from './animated-line.component';
+import AppHeader from './app-header.component';
+import ClassNamesItem from './class-names-item.component';
+import ClassNamesList from './class-names-list.component';
+import ColourBlock from './colour-block.component';
+import ColourChip from './colour-chip.component';
+import FieldLabel from './field-label.component';
+import Navigation from './navigation.component';
+import NavLink from './nav-link.component';
+import SectionMenu from './section-menu.component';
+import SectionMenuItem from './section-menu-item.component';
+import Terminal from './terminal.component';
+import TextField from './text-field.component';
 
 export {
   AnimatedLine,

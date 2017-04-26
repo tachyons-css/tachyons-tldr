@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import tachyons from './modules/tachyons';
 import classNames from './modules/class-names';
 import ui from './modules/ui';
+import { scalesModule } from '../scales';
 
 Vue.use(Vuex);
 
@@ -13,6 +14,7 @@ const store = new Vuex.Store({
     tachyons,
     classNames,
     ui,
+    scales: scalesModule,
   },
   strict: debug,
 });
