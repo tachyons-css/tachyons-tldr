@@ -8,17 +8,16 @@ export default {
   name: 'class-names-view',
   components: { Terminal, ClassNamesList, FieldLabel },
   computed: {
-    ...mapState('ui', ['terminal']),
     ...mapState(['classNames']),
-    ...mapGetters(['searchResults']),
+    ...mapGetters('classNames', ['searchResults']),
   },
   methods: {
-    ...mapMutations('ui', [
+    ...mapMutations('classNames', [
       'activateTerminal',
       'deactivateTerminal',
       'toggleSearchByClassName',
+      'searchForClassByProp',
     ]),
-    ...mapMutations(['searchForClassByProp']),
   },
 };
 </script>
@@ -28,7 +27,7 @@ export default {
     <terminal class="mw7 center"
       command="tldr"
       :value="classNames.query"
-      :isActive="terminal.isActive"
+      :isActive="classNames.isActive"
       @execute="searchForClassByProp($event)"
       @activate="activateTerminal"
       @deactivate="deactivateTerminal">
@@ -37,7 +36,7 @@ export default {
         slot="flag"
         class="ml3 pl3 pv3 pointer b bl b--black-20">
         <input type="checkbox"
-          :checked="terminal.byClassName"
+          :checked="classNames.byClassName"
           @change="toggleSearchByClassName">
           --by-class-name
       </label>

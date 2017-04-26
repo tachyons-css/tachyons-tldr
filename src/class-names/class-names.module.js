@@ -1,6 +1,6 @@
 import R, { __ } from 'ramda';
-import { propNamesList, cssObj } from '../../api';
-import * as utils from '../../utils';
+import { propNamesList, cssObj } from '../api';
+import * as utils from '../utils';
 
 export const findByPartialMatch = query => R.compose(
   R.find(
@@ -48,7 +48,7 @@ function findByProperty(query, classGroups) {
   return classGroups[name] ? groupClasses(classGroups[name]) : [];
 }
 
-const byClassName = R.ifElse(R.isEmpty,
+const hasClassName = R.ifElse(R.isEmpty,
   R.always(/notValidClass/),
   query => new RegExp(query, 'ig')
 );
@@ -60,7 +60,7 @@ const findByClassName = query => R.compose(
   })),
   R.filter(
     R.compose(
-      R.test(byClassName(query)),
+      R.test(hasClassName(query)),
       R.head,
     ),
   ),
@@ -72,6 +72,7 @@ const findByClassName = query => R.compose(
  */
 const classNamesState = {
   query: null,
+  isActive: false,
   byClassName: false,
 };
 
@@ -81,11 +82,11 @@ const classNamesState = {
  */
 const getters = {
   searchResults: (
-    { query = '' },
+    { query = '', byClassName },
     _,
-    { tachyons: { classGroups, classNames }, ui }
+    { tachyons: { classGroups, classNames } }
   ) => {
-    if (ui.terminal.byClassName) {
+    if (byClassName) {
       return findByClassName(query)(classNames);
     }
 
@@ -109,10 +110,23 @@ const mutations = {
   searchForClassByProp(state, { query }) {
     state.query = query;
   },
+
+  activateTerminal(state) {
+    state.isActive = true;
+  },
+
+  deactivateTerminal(state) {
+    state.isActive = false;
+  },
+
+  toggleSearchByClassName(state) {
+    state.byClassName = !state.byClassName;
+  },
 };
 
 
 export default {
+  namespaced: true,
   state: classNamesState,
   getters,
   actions,
