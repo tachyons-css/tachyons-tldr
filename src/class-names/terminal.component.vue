@@ -1,11 +1,9 @@
 <script>
-import Terminal from './terminal.component';
-import FieldLabel from './field-label.component';
-import TextField from './text-field.component';
+import { FieldLabel, TextField } from 'components';
 
 export default {
   name: 'terminal',
-  components: { Terminal, FieldLabel, TextField },
+  components: { FieldLabel, TextField },
   props: {
     command: String,
     value: String,
