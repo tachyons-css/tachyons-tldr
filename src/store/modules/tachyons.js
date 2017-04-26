@@ -130,6 +130,7 @@ const getters = {
   maxWidths: R.path(['scales', 'maxWidths']),
 };
 
+
 /**
  * Mutations
  */
