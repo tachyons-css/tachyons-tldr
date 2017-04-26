@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import ClassNamesView from '../views/ClassNamesView';
+import ClassNamesView from '../class-names';
 import ScalesView from '../scales';
-import PaletteView from '../views/PaletteView';
+import PaletteView from '../palette';
 
 Vue.use(Router);
 
