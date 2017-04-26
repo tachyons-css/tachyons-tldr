@@ -1,5 +1,5 @@
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 import { AppHeader } from 'components';
 
 export default {
@@ -14,7 +14,7 @@ export default {
     ...mapState('tachyons', ['version']),
   },
   methods: {
-    ...mapActions('tachyons', ['loadStyles']),
+    ...mapMutations('tachyons', ['loadStyles']),
   },
   beforeMount() {
     this.loadStyles();

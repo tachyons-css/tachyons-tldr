@@ -1,5 +1,4 @@
 import R from 'ramda';
-import { TACHYONS } from '../mutation-types';
 import {
   groupedClasses,
   colours,
@@ -131,31 +130,15 @@ const getters = {
   maxWidths: R.path(['scales', 'maxWidths']),
 };
 
-
-/**
- * Actions
- */
-const actions = {
-  loadStyles({ commit }) {
-    commit(TACHYONS.LOAD_STYLES, {
-      classGroups: groupedClasses,
-      colours,
-      scales,
-      classNames,
-    });
-  },
-};
-
-
 /**
  * Mutations
  */
 const mutations = {
-  [TACHYONS.LOAD_STYLES](state, payload) {
-    state.classGroups = payload.classGroups;
-    state.colours = payload.colours;
-    state.scales = payload.scales;
-    state.classNames = payload.classNames;
+  loadStyles(state) {
+    state.classGroups = groupedClasses;
+    state.colours = colours;
+    state.scales = scales;
+    state.classNames = classNames;
   },
 };
 
@@ -164,6 +147,5 @@ export default {
   namespaced: true,
   state: tachyonsState,
   getters,
-  actions,
   mutations,
 };
