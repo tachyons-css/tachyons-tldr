@@ -37,8 +37,12 @@ export default {
           to="/scales">
           Scales
         </nav-link>
-        <nav-link to="/palette">
+        <nav-link class="mr3"
+          to="/palette">
           Palette
+        </nav-link>
+        <nav-link to="/tools">
+          Tools
         </nav-link>
       </navigation>
       <animated-line class="watermelon"

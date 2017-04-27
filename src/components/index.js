@@ -6,6 +6,7 @@ import NavLink from './nav-link.component';
 import SectionMenu from './section-menu.component';
 import SectionMenuItem from './section-menu-item.component';
 import TextField from './text-field.component';
+import ClipboardButton from './clipboard-button.component';
 
 export {
   AnimatedLine,
@@ -16,4 +17,5 @@ export {
   SectionMenu,
   SectionMenuItem,
   TextField,
+  ClipboardButton,
 };
