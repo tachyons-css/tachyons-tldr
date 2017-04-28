@@ -12,18 +12,8 @@ export default {
 
 <template>
   <div class="flex items-center pa3">
-    <div class="w-40">
+    <div class="w-40 b">
       {{ className.name }}
-      <!-- <button class="bn bg-transparent pointer"
-        type="button"
-        v-if="className.mqNames.length > 0">
-        [+]
-      </button> -->
-      <!-- <ul class="list">
-        <li v-for="mqClassName in className.mqNames">
-          {{ mqClassName }}
-        </li>
-      </ul> -->
     </div>
     <div class="ml3 flex-auto">
       <ul class="list pl0">
@@ -32,8 +22,5 @@ export default {
         </li>
       </ul>
     </div>
-    <!-- <div class="w-10 tc">
-      {{ className.mqNames.length > 0 ? '✅' : '❌' }}
-    </div> -->
   </div>
 </template>

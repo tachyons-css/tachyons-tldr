@@ -21,7 +21,11 @@ export default {
 <template>
   <header class="flex">
     <h1 class="tc f4 mv0 watermelon">
-      tachyons tldr
+      <a class="color-inherit link dim"
+        href="https://github.com/winkerVSbecks/tachyons-tldr"
+        target="blank">
+        tachyons tldr
+      </a>
       <small class="fw2">{{ version }}</small>
     </h1>
 

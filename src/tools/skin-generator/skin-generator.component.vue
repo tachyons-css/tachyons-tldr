@@ -21,7 +21,7 @@ export default {
     <h2 class="f5 mb5">Skin Generator</h2>
     <div class="flex flex-column flex-row-ns items-stretch">
 
-      <div class="w5 mr5-ns mb4 mb0-ns">
+      <div class="w-34 mr3-ns mb4 mb0-ns">
         <div class="pl2 bw2 bl mb4 flex flex-column " :style="{ borderColor: colour.value }">
           <field-label for="colour-value" class="db f6 ttu tracked">COLOUR</field-label>
           <text-field
