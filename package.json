@@ -1,17 +1,21 @@
 {
-  "name": "tachyons-decrypt",
+  "name": "tachyons-tldr",
   "version": "1.0.0",
   "description": "quick lookup for tachyon classes, scales and colour palette",
   "author": "Varun Vachhar <varunvachhar@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "node build/build.js",
-    "lint": "eslint --ext .js,.vue src"
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js --progress --hide-modules",
+    "lint": "eslint --ext .js,.vue src",
+    "start": "node server",
+    "now-start": "node server"
   },
   "dependencies": {
     "animejs": "^2.0.1",
     "clipboard": "^1.6.1",
+    "connect-history-api-fallback": "^1.3.0",
+    "express": "^4.15.2",
     "hello-color": "^1.0.1",
     "lodash.debounce": "^4.0.8",
     "postcss": "^5.2.11",
@@ -35,7 +39,7 @@
     "babel-preset-stage-2": "^6.0.0",
     "babel-register": "^6.0.0",
     "chalk": "^1.1.3",
-    "connect-history-api-fallback": "^1.1.0",
+    "cross-env": "^4.0.0",
     "css-loader": "^0.25.0",
     "eslint": "^3.7.1",
     "eslint-config-airbnb-base": "^8.0.0",
@@ -45,7 +49,6 @@
     "eslint-plugin-html": "^1.3.0",
     "eslint-plugin-import": "^1.16.0",
     "eventsource-polyfill": "^0.9.6",
-    "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "friendly-errors-webpack-plugin": "^1.1.2",
@@ -67,7 +70,7 @@
     "webpack-merge": "^0.14.1"
   },
   "engines": {
-    "node": ">= 4.0.0",
-    "npm": ">= 3.0.0"
+    "node": "^7.0.0",
+    "npm": "^4.2.0"
   }
 }
