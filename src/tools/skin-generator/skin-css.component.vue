@@ -1,9 +1,6 @@
 <script>
-import { ClipboardButton } from 'components';
-
 export default {
   name: 'skin-css',
-  components: { ClipboardButton },
   props: {
     cssString: { type: String, default: '' },
   },

@@ -1,12 +1,10 @@
 <script>
-import { SrcLink } from 'components';
 import OpacityScale from './opacity-scale.component';
 
 export default {
   name: 'opacity-section',
   components: {
     OpacityScale,
-    SrcLink,
   },
   props: {
     opacityScale: Object,

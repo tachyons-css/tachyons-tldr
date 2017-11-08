@@ -1,7 +1,6 @@
 <script>
 import R from 'ramda';
 import { mapGetters, mapState, mapMutations } from 'vuex';
-import { SectionMenuItem, SectionMenu } from 'components';
 import BorderSection from './border-section.component';
 import SpacingSection from './spacing-section';
 import TypographySection from './typography-section';
@@ -23,8 +22,6 @@ export default {
     BorderSection,
     ShadowSection,
     OpacitySection,
-    SectionMenuItem,
-    SectionMenu,
   },
   mounted() {
     const locations = R.compose(

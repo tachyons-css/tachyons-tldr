@@ -1,11 +1,10 @@
 <script>
 import { mapState, mapGetters, mapMutations } from 'vuex';
-import { TextField, FieldLabel } from 'components';
 import SkinCss from './skin-css.component';
 
 export default {
   name: 'skin-generator',
-  components: { TextField, FieldLabel, SkinCss },
+  components: { SkinCss },
   computed: {
     ...mapState('tools', ['colour']),
     ...mapGetters('tools', ['skin']),

@@ -1,12 +1,10 @@
 <script>
-import { SrcLink } from 'components';
 import WidthScaleGrid from './width-scale-grid.component';
 
 export default {
   name: 'widths-section',
   components: {
     WidthScaleGrid,
-    SrcLink,
   },
   props: {
     widths: Object,

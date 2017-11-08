@@ -1,9 +1,6 @@
 <script>
-import { FieldLabel, TextField } from 'components';
-
 export default {
   name: 'terminal',
-  components: { FieldLabel, TextField },
   props: {
     command: String,
     value: String,

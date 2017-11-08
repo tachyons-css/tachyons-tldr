@@ -1,10 +1,14 @@
-export { default as AnimatedLine } from './animated-line.component';
-export { default as AppHeader } from './app-header.component';
-export { default as FieldLabel } from './field-label.component';
-export { default as Navigation } from './navigation.component';
-export { default as NavLink } from './nav-link.component';
-export { default as SectionMenu } from './section-menu.component';
-export { default as SectionMenuItem } from './section-menu-item.component';
-export { default as TextField } from './text-field.component';
-export { default as ClipboardButton } from './clipboard-button.component';
-export { default as SrcLink } from './src-link.component';
+import Vue from 'vue';
+
+const requireComponent = require.context('./', true, /\.component\.vue$/);
+
+requireComponent.keys().forEach((fileName) => {
+  let baseComponentConfig = requireComponent(fileName);
+
+  baseComponentConfig = baseComponentConfig.default || baseComponentConfig;
+  const baseComponentName =
+    baseComponentConfig.name ||
+    fileName.replace(/^.+\//, '').replace(/\.\w+$/, '');
+
+  Vue.component(baseComponentName, baseComponentConfig);
+});

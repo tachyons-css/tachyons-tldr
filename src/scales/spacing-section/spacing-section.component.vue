@@ -1,12 +1,10 @@
 <script>
-import { SrcLink } from 'components';
 import SpacingScale from './spacing-scale.component';
 
 export default {
   name: 'spacing-section',
   components: {
     SpacingScale,
-    SrcLink,
   },
   props: {
     spacingScale: Object,

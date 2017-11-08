@@ -1,12 +1,10 @@
 <script>
-import { SrcLink } from 'components';
 import TypeScaleGrid from './type-scale-grid.component';
 
 export default {
   name: 'typography-section',
   components: {
     TypeScaleGrid,
-    SrcLink,
   },
   props: {
     typeScale: Object,

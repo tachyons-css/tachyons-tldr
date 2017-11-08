@@ -1,12 +1,10 @@
 <script>
-import { SrcLink } from 'components';
 import BoxScaleGrid from './box-scale-grid.component';
 
 export default {
   name: 'scales-view',
   components: {
     BoxScaleGrid,
-    SrcLink,
   },
   props: {
     borderRadius: Object,

@@ -1,12 +1,10 @@
 <script>
-import { SrcLink } from 'components';
 import BoxScaleGrid from './box-scale-grid.component';
 
 export default {
   name: 'heights-section',
   components: {
     BoxScaleGrid,
-    SrcLink,
   },
   props: {
     heights: Object,
