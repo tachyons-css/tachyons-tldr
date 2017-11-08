@@ -28,6 +28,7 @@ const addNegatives = R.map(colour => ({
   negative: hello(colour).color,
 }));
 
+// eslint-disable-next-line
 export const colours = R.compose(
   R.over(R.lensProp('solid'), addNegatives),
   R.map(R.fromPairs),

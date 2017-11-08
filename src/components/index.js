@@ -1,21 +1,10 @@
-import AnimatedLine from './animated-line.component';
-import AppHeader from './app-header.component';
-import FieldLabel from './field-label.component';
-import Navigation from './navigation.component';
-import NavLink from './nav-link.component';
-import SectionMenu from './section-menu.component';
-import SectionMenuItem from './section-menu-item.component';
-import TextField from './text-field.component';
-import ClipboardButton from './clipboard-button.component';
-
-export {
-  AnimatedLine,
-  AppHeader,
-  FieldLabel,
-  Navigation,
-  NavLink,
-  SectionMenu,
-  SectionMenuItem,
-  TextField,
-  ClipboardButton,
-};
+export { default as AnimatedLine } from './animated-line.component';
+export { default as AppHeader } from './app-header.component';
+export { default as FieldLabel } from './field-label.component';
+export { default as Navigation } from './navigation.component';
+export { default as NavLink } from './nav-link.component';
+export { default as SectionMenu } from './section-menu.component';
+export { default as SectionMenuItem } from './section-menu-item.component';
+export { default as TextField } from './text-field.component';
+export { default as ClipboardButton } from './clipboard-button.component';
+export { default as SrcLink } from './src-link.component';
