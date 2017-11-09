@@ -1,6 +1,6 @@
 {
   "name": "tachyons-decrypt",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "quick lookup for tachyon classes, scales and colour palette",
   "author": "Varun Vachhar <varunvachhar@gmail.com>",
   "private": true,
