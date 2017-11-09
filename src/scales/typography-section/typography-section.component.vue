@@ -15,12 +15,16 @@ export default {
 
 <template>
   <section>
-    <h3 class="f5 mt0">Type Scale</h3>
+    <src-link to="type-scale">
+      <h3 class="f5 mv0 black-70">Type Scale</h3>
+    </src-link>
     <type-scale-grid class="b mb5"
       :scale="typeScale"
       show-grid />
 
-    <h3 class="f5">Font Weights</h3>
+    <src-link to="font-weight">
+      <h3 class="f5 mv0 black-70">Font Weights</h3>
+    </src-link>
     <type-scale-grid class="f1"
       :scale="fontWeight" />
   </section>

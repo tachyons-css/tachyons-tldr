@@ -1,7 +1,6 @@
 <script>
 import R from 'ramda';
 import { mapGetters, mapState, mapMutations } from 'vuex';
-import { SectionMenuItem, SectionMenu } from 'components';
 import BorderSection from './border-section.component';
 import SpacingSection from './spacing-section';
 import TypographySection from './typography-section';
@@ -23,8 +22,6 @@ export default {
     BorderSection,
     ShadowSection,
     OpacitySection,
-    SectionMenuItem,
-    SectionMenu,
   },
   mounted() {
     const locations = R.compose(
@@ -66,13 +63,18 @@ export default {
   methods: {
     ...mapMutations('scales', ['selectScaleCategory']),
     updateScrollSpy(locations, threshold, scrollY) {
-      const idx = R.findIndex(location => Math.abs(location - scrollY) < threshold, locations);
+      const idx = R.findIndex(
+        location => Math.abs(location - scrollY) < threshold,
+        locations,
+      );
       if (idx > -1) this.selectScaleCategory(idx);
     },
     goTo(category) {
       if (this.$refs[category]) {
-        this.$refs[category].$el
-          .scrollIntoView({ block: 'top', behavior: 'smooth' });
+        this.$refs[category].$el.scrollIntoView({
+          block: 'start',
+          behavior: 'smooth',
+        });
       }
     },
   },

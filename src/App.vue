@@ -1,10 +1,8 @@
 <script>
 import { mapState, mapMutations } from 'vuex';
-import { AppHeader } from 'components';
 
 export default {
   name: 'app',
-  components: { AppHeader },
   data() {
     return {
       transitionName: 'slide-right',

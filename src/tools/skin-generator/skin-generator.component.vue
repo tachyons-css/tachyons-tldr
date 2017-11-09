@@ -1,17 +1,22 @@
 <script>
 import { mapState, mapGetters, mapMutations } from 'vuex';
-import { TextField, FieldLabel } from 'components';
 import SkinCss from './skin-css.component';
 
 export default {
   name: 'skin-generator',
-  components: { TextField, FieldLabel, SkinCss },
+  components: { SkinCss },
   computed: {
-    ...mapState('tools', ['colour']),
-    ...mapGetters('tools', ['skin']),
+    ...mapState('tools', ['skin']),
+    ...mapGetters('tools', ['skinCss']),
   },
   methods: {
-    ...mapMutations('tools', ['updateName', 'updateValue']),
+    ...mapMutations('tools', ['updateSkin']),
+    updateName(name) {
+      this.updateSkin({ type: 'name', value: name });
+    },
+    updateColour(colour) {
+      this.updateSkin({ type: 'colour', value: colour });
+    },
   },
 };
 </script>
@@ -19,33 +24,33 @@ export default {
 <template>
   <div>
     <h2 class="f5 mb5">Skin Generator</h2>
-    <div class="flex flex-column flex-row-ns items-stretch">
+    <div class="flex flex-column flex-row-l items-stretch">
 
-      <div class="w-34 mr3-ns mb4 mb0-ns">
-        <div class="pl2 bw2 bl mb4 flex flex-column " :style="{ borderColor: colour.value }">
-          <field-label for="colour-value" class="db f6 ttu tracked">COLOUR</field-label>
+      <div class="w-100 w-34-l mr3-l mb4 mb0-l">
+        <div class="pl2 bw2 bl mb4 flex flex-column " :style="{ borderColor: skin.colour }">
+          <field-label for="skin-colour" class="db f6 ttu tracked">COLOUR</field-label>
           <text-field
             class="pv2 f1 code"
-            name="colour-value"
-            placeholder="colour value"
+            name="skin-colour"
+            placeholder="skin colour"
             type="text"
-            :value="colour.value"
-            @change="updateValue" />
+            :value="skin.colour"
+            @change="updateColour" />
         </div>
 
         <div class="pl2 bw2 bl b--black-10 flex flex-column">
-          <field-label for="colour-name" class="db f6 ttu tracked">Name</field-label>
+          <field-label for="skin-name" class="db f6 ttu tracked">Name</field-label>
           <text-field
             class="pv2 f1 code"
-            name="colour-name"
-            placeholder="colour name"
+            name="skin-name"
+            placeholder="skin name"
             type="text"
-            :value="colour.name"
+            :value="skin.name"
             @change="updateName" />
         </div>
       </div>
 
-      <skin-css :css-string="skin" />
+      <skin-css :css-string="skinCss" />
 
     </div>
   </div>

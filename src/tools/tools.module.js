@@ -1,10 +1,18 @@
+import { skinCss, mqFy } from './utils';
+
 /**
  * initial state
  */
 const toolsState = {
-  colour: {
-    value: '#4e4bec',
+  skin: {
+    colour: '#4e4bec',
     name: 'neon-blue',
+  },
+  mq: {
+    name: 'sticky',
+    rules: 'position: sticky;',
+    sm: '30em',
+    lg: '60em',
   },
 };
 
@@ -12,29 +20,20 @@ const toolsState = {
  * Getters
  */
 const getters = {
-  skin: ({ colour: { name, value } }) => (`
-.${name} { color: ${value}; }
-.bg-${name} { background-color: ${value}; }
-.b--${name} { border-color: ${value}; }
-
-.hover-${name}:hover,
-.hover-${name}:focus { color: ${value}; }
-
-.hover-bg-${name}:hover,
-.hover-bg-${name}:focus { background-color: ${value}; }`
-  ),
+  skinCss: ({ skin: { name, colour } }) => skinCss(name, colour),
+  mqfy: ({ mq: { name, sm, lg, rules } }) => mqFy(name, sm, lg, rules),
 };
 
 /**
  * Mutations
  */
 const mutations = {
-  updateName(state, payload) {
-    state.colour.name = payload;
+  updateSkin(state, payload) {
+    state.skin[payload.type] = payload.value;
   },
 
-  updateValue(state, payload) {
-    state.colour.value = payload;
+  updateMq(state, payload) {
+    state.mq[payload.type] = payload.value;
   },
 };
 

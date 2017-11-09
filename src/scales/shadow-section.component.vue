@@ -14,7 +14,9 @@ export default {
 
 <template>
   <section>
-    <h3 class="f5 mt0">Shadow Scale</h3>
+    <src-link to="box-shadow">
+      <h3 class="f5 mv0 black-70">Shadow Scale</h3>
+    </src-link>
     <box-scale-grid
       :scale="shadowScale" />
   </section>

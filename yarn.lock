@@ -4350,9 +4350,9 @@ table@^3.7.8:
     slice-ansi "0.0.4"
     string-width "^2.0.0"
 
-tachyons@^4.7.0:
-  version "4.7.1"
-  resolved "https://registry.yarnpkg.com/tachyons/-/tachyons-4.7.1.tgz#2ca7295f3eb081470e54d23ef94fffe4322153b4"
+tachyons@^4.9.0:
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/tachyons/-/tachyons-4.9.0.tgz#2df058ea6b6eb3d2be12d62a69fecb0f6b1e0534"
 
 tapable@^0.1.8, tapable@~0.1.8:
   version "0.1.10"
