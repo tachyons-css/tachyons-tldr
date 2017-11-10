@@ -1,26 +1,20 @@
+/* eslint-disable */
+import fs from 'fs';
 import postcssJs from 'postcss-js';
 import postcss from 'postcss';
 import hello from 'hello-color';
 import R from 'ramda';
-import {
-  root,
-  renameKeys,
-  renameKeysBy,
-  toTitleCase,
-} from '../utils';
+import { root, renameKeys, renameKeysBy, toTitleCase } from '../../utils';
 
 /**
  * Colours
  */
-const coloursModule = require('!raw-loader!tachyons/src/_colors.css');
+const coloursModule = fs.readFileSync('node_modules/tachyons/src/_colors.css');
 
 const coloursRoot = postcss.parse(coloursModule);
 
 const groupByAlpha = R.groupBy(
-  R.compose(
-    R.test(/(rgba.+|transparent)/),
-    R.last,
-  ),
+  R.compose(R.test(/(rgba.+|transparent)/), R.last),
 );
 
 const addNegatives = R.map(colour => ({
@@ -28,7 +22,8 @@ const addNegatives = R.map(colour => ({
   negative: hello(colour).color,
 }));
 
-// eslint-disable-next-line
+console.info('    🎨  Parsing Tachyons Colours module');
+
 export const colours = R.compose(
   R.over(R.lensProp('solid'), addNegatives),
   R.map(R.fromPairs),
@@ -42,3 +37,15 @@ export const colours = R.compose(
   root,
   postcssJs.objectify,
 )(coloursRoot);
+
+fs.writeFile(
+  './src/api/colours.json',
+  JSON.stringify(colours, null, 2),
+  err => {
+    if (err) {
+      return console.error(err);
+    }
+
+    console.info('    🖨️  Colours file was saved');
+  },
+);
