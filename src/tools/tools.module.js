@@ -29,10 +29,12 @@ const getters = {
  */
 const mutations = {
   updateSkin(state, payload) {
+    // eslint-disable-next-line
     state.skin[payload.type] = payload.value;
   },
 
   updateMq(state, payload) {
+    // eslint-disable-next-line
     state.mq[payload.type] = payload.value;
   },
 };

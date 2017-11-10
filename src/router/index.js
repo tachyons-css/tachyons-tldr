@@ -1,23 +1,16 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-// import ClassNamesView from '../class-names';
-// import ScalesView from '../scales';
-// import PaletteView from '../palette';
-// import ToolsView from '../tools';
-
 Vue.use(Router);
 
-const asyncCb = resolve => module => resolve(module.default);
-
-// eslint-disable-next-line
-const ClassNamesView = () => new Promise(r => require(['../class-names'], asyncCb(r)));
-// eslint-disable-next-line
-const ScalesView = () => new Promise(r => require(['../scales'], asyncCb(r)));
-// eslint-disable-next-line
-const PaletteView = () => new Promise(r => require(['../palette'], asyncCb(r)));
-// eslint-disable-next-line
-const ToolsView = () => new Promise(r => require(['../tools'], asyncCb(r)));
+const ClassNamesView = () =>
+  import(/* webpackChunkName: "class-names" */ '../class-names/class-names.view');
+const ScalesView = () =>
+  import(/* webpackChunkName: "scales" */ '../scales/scales.view');
+const PaletteView = () =>
+  import(/* webpackChunkName: "palette" */ '../palette/palette.view');
+const ToolsView = () =>
+  import(/* webpackChunkName: "tools" */ '../tools/tools.view');
 
 export default new Router({
   scrollBehavior(to) {

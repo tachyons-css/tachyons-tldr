@@ -16,7 +16,7 @@ const formatRules = (rules, padding = '') => rules.split('\n').join(`\n${padding
 export function mqFy(name, sm, lg, rules) {
   return `
 .${name} {
-  ${formatRules(rules, '    ')}
+  ${formatRules(rules, '  ')}
 }
 
 @media screen and (min-width: ${sm}) {

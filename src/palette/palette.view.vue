@@ -22,6 +22,7 @@ export default {
         <colour-block class="w-50 w-33-m w-25-l"
           v-for="(colour, name) in solidColours"
           :colour="colour"
+          :key="name"
           :name="name" />
       </div>
 
@@ -30,6 +31,7 @@ export default {
         <colour-chip class="w-50 w-25-l mb3 pr3"
           v-for="(colour, name, index) in colours.alpha"
           :colour="colour"
+          :key="name"
           :name="name" />
       </div>
     </div>
