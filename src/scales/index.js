@@ -1,5 +1,3 @@
-import ScalesView from './scales.view';
-import scalesModule from './scales.module';
+export { default as scalesModule } from './scales.module';
 
-export default ScalesView;
-export { scalesModule };
+export default () => import(/* webpackChunkName: "scales" */ './scales.view');

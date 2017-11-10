@@ -1,27 +1,14 @@
-import postcssJs from 'postcss-js';
-import postcss from 'postcss';
 import R from 'ramda';
 import {
   toKebabCase,
-  selectors,
-  atMediaClasses,
-  renameKeys,
 } from '../utils';
+import cssObj from './styles.json';
 
 
 /**
  * All Styles
  */
-const tachyonsCss = require('!raw-loader!tachyons');
-
-const cssRoot = postcss.parse(tachyonsCss);
-
-export const cssObj = R.compose(
-  R.map(renameKeys({ cssFloat: 'float' })),
-  R.converge(R.merge, [selectors, atMediaClasses]),
-  postcssJs.objectify,
-)(cssRoot);
-
+export { cssObj };
 
 function splitRules(props, className) {
   return R.map(R.pair(className), props);

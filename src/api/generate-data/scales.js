@@ -1,3 +1,5 @@
+/* eslint-disable */
+import fs from 'fs';
 import postcssJs from 'postcss-js';
 import postcss from 'postcss';
 import R from 'ramda';
@@ -6,16 +8,16 @@ import {
   nonMediaValuesBy,
   root,
   renameKeys,
-} from '../utils';
+} from '../../utils';
 
-/* eslint-disable */
 const valuesFromModule = (valueGetter, moduleName) => {
-  const module = require(`!raw-loader!tachyons/src/_${moduleName}.css`);
+  const module = fs.readFileSync(
+    `node_modules/tachyons/src/_${moduleName}.css`,
+  );
+
   const root = postcss.parse(module);
   return R.compose(valueGetter, postcssJs.objectify)(root);
 };
-/* eslint-enable */
-
 
 const scaleParsers = {
   spacing: R.compose(R.values, root),
@@ -27,25 +29,20 @@ const scaleParsers = {
     nonMediaValuesBy(R.prop('fontWeight')),
   ),
 
-  'border-radius': nonMediaValuesBy(R.ifElse(R.has('borderRadius'),
-    R.prop('borderRadius'),
-    R.identity,
-  )),
+  'border-radius': nonMediaValuesBy(
+    R.ifElse(R.has('borderRadius'), R.prop('borderRadius'), R.identity),
+  ),
 
-  'border-widths': nonMediaValuesBy(R.ifElse(R.has('borderWidth'),
-    R.prop('borderWidth'),
-    R.identity,
-  )),
+  'border-widths': nonMediaValuesBy(
+    R.ifElse(R.has('borderWidth'), R.prop('borderWidth'), R.identity),
+  ),
 
   heights: R.compose(
     R.omit(['.h-auto', '.h-inherit', '.min-h-100', '.min-vh-100']),
-    nonMediaValuesBy(R.prop('height'))
+    nonMediaValuesBy(R.prop('height')),
   ),
 
-  widths: R.compose(
-    R.omit(['.w-auto']),
-    nonMediaValuesBy(R.prop('width')),
-  ),
+  widths: R.compose(R.omit(['.w-auto']), nonMediaValuesBy(R.prop('width'))),
 
   'max-widths': R.compose(
     R.omit(['.mw-none']),
@@ -57,7 +54,9 @@ const scaleParsers = {
   'box-shadow': nonMediaValuesBy(R.prop('boxShadow')),
 };
 
-export const scales = R.compose(
+console.info('    📏  Parsing all scale based modules');
+
+const scales = R.compose(
   R.map(allSelectorsToClassNames),
   renameKeys({
     'type-scale': 'type',
@@ -69,3 +68,11 @@ export const scales = R.compose(
   }),
   R.mapObjIndexed,
 )(valuesFromModule, scaleParsers);
+
+fs.writeFile('./src/api/scales.json', JSON.stringify(scales, null, 2), err => {
+  if (err) {
+    return console.error(err);
+  }
+
+  console.info('    🖨️  Scales file was saved');
+});

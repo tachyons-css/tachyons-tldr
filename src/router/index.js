@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import ClassNamesView from '../class-names';
-import ScalesView from '../scales';
-import PaletteView from '../palette';
-import ToolsView from '../tools';
+import ClassNamesView from '@/class-names';
+import ScalesView from '@/scales';
+import PaletteView from '@/palette';
+import ToolsView from '@/tools';
 
 Vue.use(Router);
 

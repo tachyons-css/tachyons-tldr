@@ -90,6 +90,7 @@ export default {
         <section-menu-item
           v-for="category in categories"
           :to="'#' + category"
+          :key="category"
           @click.native="goTo(category)">
           {{ category }}
         </section-menu-item>

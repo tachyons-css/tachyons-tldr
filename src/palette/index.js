@@ -1,3 +1,1 @@
-import PaletteView from './palette.view';
-
-export default PaletteView;
+export default () => import(/* webpackChunkName: "palette" */ './palette.view');
