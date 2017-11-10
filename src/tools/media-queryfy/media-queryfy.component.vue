@@ -1,14 +1,14 @@
 <script>
 import { mapState, mapGetters, mapMutations } from 'vuex';
-import SkinCss from './skin-css.component';
+import CssSrc from '../css-src.component';
 
 export default {
   name: 'skin-generator',
-  components: { SkinCss },
+  components: { CssSrc },
   computed: {
     ...mapState('tools', ['colour']),
     ...mapState('tools', ['mq']),
-    ...mapGetters('tools', ['mqfy']),
+    ...mapGetters('tools', ['mqfyCss']),
   },
   methods: {
     ...mapMutations('tools', ['updateMq']),
@@ -38,7 +38,7 @@ export default {
           <field-label for="classname" class="db f6 ttu tracked">Class Name</field-label>
           <text-field
             class="pv2 f1 code w-100"
-            name="classname"
+            id="classname"
             type="text"
             :value="mq.name"
             @change="updateName" />
@@ -48,7 +48,7 @@ export default {
           <field-label for="rules" class="db f6 ttu tracked">Rules</field-label>
           <textarea
             class="pv2 f4 code w-100 bn mt2 h4"
-            name="rules"
+            id="rules"
             @change="updateRules">{{ mq.rules }}</textarea>
         </div>
 
@@ -58,7 +58,7 @@ export default {
           </field-label>
           <text-field
             class="pv2 f1 code w-100"
-            name="small-breakpoint"
+            id="small-breakpoint"
             type="text"
             :value="mq.sm"
             @change="updateSm" />
@@ -70,14 +70,14 @@ export default {
           </field-label>
           <text-field
             class="pv2 f1 code w-100"
-            name="large-breakpoint"
+            id="large-breakpoint"
             type="text"
             :value="mq.lg"
             @change="updateLg" />
         </div>
       </div>
 
-      <skin-css :css-string="mqfy" />
+      <css-src :css-string="mqfyCss" />
 
     </div>
   </div>

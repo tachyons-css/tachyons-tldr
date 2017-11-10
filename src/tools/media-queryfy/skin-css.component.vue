@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'skin-css',
+  name: 'css-src',
   props: {
     cssString: { type: String, default: '' },
   },

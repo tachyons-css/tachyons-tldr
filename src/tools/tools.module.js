@@ -21,7 +21,7 @@ const toolsState = {
  */
 const getters = {
   skinCss: ({ skin: { name, colour } }) => skinCss(name, colour),
-  mqfy: ({ mq: { name, sm, lg, rules } }) => mqFy(name, sm, lg, rules),
+  mqfyCss: ({ mq: { name, sm, lg, rules } }) => mqFy(name, sm, lg, rules),
 };
 
 /**
@@ -38,7 +38,6 @@ const mutations = {
     state.mq[payload.type] = payload.value;
   },
 };
-
 
 export default {
   namespaced: true,

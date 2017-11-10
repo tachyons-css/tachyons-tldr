@@ -8,7 +8,7 @@
     "predev": "npm run api",
     "dev": "node build/dev-server.js",
     "start": "npm run dev",
-    "prebuild": "npm run api",
+    "prebuild": "npm run api && rm -rf dist",
     "build": "node build/build.js",
     "unit":
       "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
