@@ -11,7 +11,8 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
-    "buddy": "bundle-buddy dist/js/*.map"
+    "buddy": "bundle-buddy dist/js/*.map",
+    "api": "babel-node --presets=env,stage-2 src/api/generate-data/index.js"
   },
   "dependencies": {
     "animejs": "^2.0.1",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^7.1.1",
@@ -38,7 +40,6 @@
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-env": "^1.3.2",
     "babel-preset-stage-2": "^6.22.0",
-    "babel-register": "^6.22.0",
     "bundle-buddy": "^0.2.1",
     "chai": "^4.1.2",
     "chalk": "^2.0.1",
