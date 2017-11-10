@@ -40,7 +40,7 @@ export default {
 </script>
 
 <template>
-  <svg class="db swift-out an-t"
+  <svg class="db swift-out an-t w3"
     :style="lineStyles"
     viewBox="0 0 64 2"
     preserveAspectRatio="none">

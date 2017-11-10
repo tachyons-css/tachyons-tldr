@@ -119,7 +119,7 @@ export default {
           class="pt4 mb6"
           :shadowScale="shadowScale" />
         <opacity-section data-section-index="6" ref="Opacity"
-          class="pt4 mb6"
+          class="pt4 mb7"
           :opacityScale="opacityScale" />
       </div>
     </div>
