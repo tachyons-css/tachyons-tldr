@@ -1,3 +1,3 @@
-import classNamesModule from './class-names.module';
+export { default as classNamesModule } from './class-names.module';
 
-export { classNamesModule };
+export default () => import(/* webpackChunkName: "class-names" */ './class-names.view');

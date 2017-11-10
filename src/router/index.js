@@ -1,16 +1,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-Vue.use(Router);
+import ClassNamesView from '@/class-names';
+import ScalesView from '@/scales';
+import PaletteView from '@/palette';
+import ToolsView from '@/tools';
 
-const ClassNamesView = () =>
-  import(/* webpackChunkName: "class-names" */ '../class-names/class-names.view');
-const ScalesView = () =>
-  import(/* webpackChunkName: "scales" */ '../scales/scales.view');
-const PaletteView = () =>
-  import(/* webpackChunkName: "palette" */ '../palette/palette.view');
-const ToolsView = () =>
-  import(/* webpackChunkName: "tools" */ '../tools/tools.view');
+Vue.use(Router);
 
 export default new Router({
   scrollBehavior(to) {

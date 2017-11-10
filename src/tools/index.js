@@ -1,3 +1,3 @@
-import toolsModule from './tools.module';
+export { default as toolsModule } from './tools.module';
 
-export { toolsModule };
+export default () => import(/* webpackChunkName: "tools" */ './tools.view');
