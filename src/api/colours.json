@@ -2,147 +2,147 @@
   "solid": {
     "Black": {
       "value": "#000",
-      "negative": "#fcfcfc"
+      "negative": "#f8f8f8"
     },
     "Near Black": {
       "value": "#111",
-      "negative": "#ebebeb"
+      "negative": "#e7e7e7"
     },
     "Dark Gray": {
       "value": "#333",
-      "negative": "#c9c9c9"
+      "negative": "#c5c5c5"
     },
     "Mid Gray": {
       "value": "#555",
-      "negative": "#a7a7a7"
+      "negative": "#c9c9c9"
     },
     "Gray": {
       "value": "#777",
-      "negative": "#2e2e2e"
+      "negative": "#060606"
     },
     "Silver": {
       "value": "#999",
-      "negative": "#4c4c4c"
+      "negative": "#323232"
     },
     "Light Silver": {
       "value": "#aaa",
-      "negative": "#585858"
+      "negative": "#3f3f3f"
     },
     "Moon Gray": {
       "value": "#ccc",
-      "negative": "#363636"
+      "negative": "#383838"
     },
     "Light Gray": {
       "value": "#eee",
-      "negative": "#141414"
+      "negative": "#161616"
     },
     "Near White": {
       "value": "#f4f4f4",
-      "negative": "#0f0f0f"
+      "negative": "#121212"
     },
     "White": {
       "value": "#fff",
-      "negative": "#040404"
+      "negative": "#090909"
     },
     "Dark Red": {
       "value": "#e7040f",
-      "negative": "#05f7ed"
+      "negative": "#e0ffff"
     },
     "Red": {
       "value": "#ff4136",
-      "negative": "#004652"
+      "negative": "#002732"
     },
     "Light Red": {
       "value": "#ff725c",
-      "negative": "#00576c"
+      "negative": "#003a4e"
     },
     "Orange": {
       "value": "#ff6300",
-      "negative": "#00459b"
+      "negative": "#002875"
     },
     "Gold": {
       "value": "#ffb700",
-      "negative": "#154bff"
+      "negative": "#0035e7"
     },
     "Yellow": {
       "value": "#ffd700",
-      "negative": "#162bff"
+      "negative": "#222eff"
     },
     "Light Yellow": {
       "value": "#fbf1a9",
-      "negative": "#0a1059"
+      "negative": "#0f135c"
     },
     "Purple": {
       "value": "#5e2ca5",
-      "negative": "#9ed057"
+      "negative": "#9acc54"
     },
     "Light Purple": {
       "value": "#a463f2",
-      "negative": "#004600"
+      "negative": "#002400"
     },
     "Dark Pink": {
       "value": "#d5008f",
-      "negative": "#21fb6d"
+      "negative": "#cbffe9"
     },
     "Hot Pink": {
       "value": "#ff41b4",
-      "negative": "#005200"
+      "negative": "#003300"
     },
     "Pink": {
       "value": "#ff80cc",
-      "negative": "#00691f"
+      "negative": "#004c02"
     },
     "Light Pink": {
       "value": "#ffa3d7",
-      "negative": "#065f2b"
+      "negative": "#005622"
     },
     "Dark Green": {
       "value": "#137752",
-      "negative": "#44001c"
+      "negative": "#ffdeff"
     },
     "Green": {
       "value": "#19a974",
-      "negative": "#920047"
+      "negative": "#620023"
     },
     "Light Green": {
       "value": "#9eebcf",
-      "negative": "#641733"
+      "negative": "#671b35"
     },
     "Navy": {
       "value": "#001b44",
-      "negative": "#fbe1b8"
+      "negative": "#f8ddb4"
     },
     "Dark Blue": {
       "value": "#00449e",
-      "negative": "#fbb85e"
+      "negative": "#f8b45b"
     },
     "Blue": {
       "value": "#357edd",
-      "negative": "#5c2500"
+      "negative": "#340000"
     },
     "Light Blue": {
       "value": "#96ccff",
-      "negative": "#6c3603"
+      "negative": "#703806"
     },
     "Lightest Blue": {
       "value": "#cdecff",
-      "negative": "#351504"
+      "negative": "#371808"
     },
     "Washed Blue": {
       "value": "#f6fffe",
-      "negative": "#0d0405"
+      "negative": "#10090a"
     },
     "Washed Green": {
       "value": "#e8fdf5",
-      "negative": "#19060e"
+      "negative": "#1b0b11"
     },
     "Washed Yellow": {
       "value": "#fffceb",
-      "negative": "#040717"
+      "negative": "#090c19"
     },
     "Washed Red": {
       "value": "#ffdfdf",
-      "negative": "#022222"
+      "negative": "#042525"
     }
   },
   "alpha": {

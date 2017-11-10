@@ -1,10 +1,10 @@
 <script>
 import { mapState, mapGetters, mapMutations } from 'vuex';
-import SkinCss from './skin-css.component';
+import CssSrc from '../css-src.component';
 
 export default {
   name: 'skin-generator',
-  components: { SkinCss },
+  components: { CssSrc },
   computed: {
     ...mapState('tools', ['skin']),
     ...mapGetters('tools', ['skinCss']),
@@ -31,7 +31,7 @@ export default {
           <field-label for="skin-colour" class="db f6 ttu tracked">COLOUR</field-label>
           <text-field
             class="pv2 f1 code"
-            name="skin-colour"
+            id="skin-colour"
             placeholder="skin colour"
             type="text"
             :value="skin.colour"
@@ -42,7 +42,7 @@ export default {
           <field-label for="skin-name" class="db f6 ttu tracked">Name</field-label>
           <text-field
             class="pv2 f1 code"
-            name="skin-name"
+            id="skin-name"
             placeholder="skin name"
             type="text"
             :value="skin.name"
@@ -50,7 +50,7 @@ export default {
         </div>
       </div>
 
-      <skin-css :css-string="skinCss" />
+      <css-src :css-string="skinCss" />
 
     </div>
   </div>

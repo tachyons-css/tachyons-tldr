@@ -24,22 +24,22 @@ export default {
     :class="{ active: isActive }">
     <div class="code flex items-center ph3">
 
+      <span class="b pv3 pr3" aria-hidden="true">
+        $ <span style="color: #00847a;">{{ command }}</span>
+      </span>
+
       <label is="field-label"
         for="query"
         hide>
         {{ command }}
       </label>
 
-      <span class="b pv3 pr3">
-        $ <span class="persian-green">{{ command }}</span>
-      </span>
-
       <text-field
         ref="input"
         class="flex-auto code pv3 ml3"
         placeholder="search for a CSS property name or class name"
         type="search"
-        name="query"
+        id="query"
         :value="value"
         @change="onExecute({ query: $event })"
         @blur.native="onDeactivate"
