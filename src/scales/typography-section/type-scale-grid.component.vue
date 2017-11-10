@@ -55,7 +55,7 @@ export default {
           >A</td>
         </transition-group>
         <tr class="bg-white">
-          <td class="tc w3 pt2 gray fw2 code f6 v-btm"
+          <td class="tc w3 pt2 mid-gray fw2 code f6 v-btm"
             v-for="(value, selector) in scale">
             .{{ selector }} ({{ value }})
           </td>

@@ -17,7 +17,7 @@ export default {
     </div>
     <div class="bg-white flex-auto lh-copy pl2 pv1 bb br bl b--black-20 br1 br--bottom">
       <b class="db truncate dark-gray f6">{{ name }}</b>
-      <code class="f6 truncate light-silver">{{ colour }}</code>
+      <code class="f6 truncate mid-gray">{{ colour }}</code>
     </div>
   </div>
 </template>

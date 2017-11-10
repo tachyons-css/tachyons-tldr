@@ -35,7 +35,7 @@ export default {
 <template>
   <div class="flex">
     <div class="mr3">
-      <div class="tr f6 h1 mb2 gray lh-solid fw3 code"
+      <div class="tr f6 h1 mb2 mid-gray lh-solid fw3 code"
         v-for="(value, selector) in scale">
         .{{ selector }} ({{ value }})
       </div>

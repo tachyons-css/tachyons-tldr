@@ -19,7 +19,7 @@ const groupByAlpha = R.groupBy(
 
 const addNegatives = R.map(colour => ({
   value: colour,
-  negative: hello(colour).color,
+  negative: hello(colour, { contrast: 4.5, lightness: 1 / 8 }).color,
 }));
 
 console.info('    🎨  Parsing Tachyons Colours module');

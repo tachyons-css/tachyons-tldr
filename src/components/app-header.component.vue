@@ -26,7 +26,7 @@ export default {
         target="blank">
         tachyons tldr
       </a>
-      <small class="fw2">{{ version }}</small>
+      <small class="fw2 mid-gray">{{ version }}</small>
     </h1>
 
     <div class="flex-auto"></div>
