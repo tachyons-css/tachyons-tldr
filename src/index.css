@@ -7,7 +7,7 @@
 .preserve-3d { transform-style: preserve-3d; }
 .flex-grow { flex: 1 0 8rem; }
 .origin-0-0 { transform-origin: 0 0; }
-.sticky { position: sticky; }
+.sticky { position: -webkit-sticky; position: sticky; }
 .z--1 { z-index: -1; }
 
 .debug-grid-green {
