@@ -10,8 +10,7 @@
     "start": "npm run dev",
     "prebuild": "npm run api && rm -rf dist",
     "build": "node build/build.js",
-    "unit":
-      "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
+    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
     "buddy": "bundle-buddy dist/js/*.map",
@@ -26,7 +25,7 @@
     "postcss-js": "^0.2.0",
     "ramda": "^0.23.0",
     "scroll-behaviour": "^0.3.3",
-    "tachyons": "^4.9.0",
+    "tachyons": "4.9.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
@@ -100,5 +99,9 @@
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }
