@@ -2910,7 +2910,7 @@
     "marginTop": "0",
     "marginBottom": "0"
   },
-  ".nested-copy-seperator p+p": {
+  ".nested-copy-separator p+p": {
     "marginTop": "1.5em"
   },
   ".nested-img img": {
